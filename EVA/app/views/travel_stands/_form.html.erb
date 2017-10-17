@@ -1,0 +1,17 @@
+<%= form_with(model: travel_stand, local: true) do |form| %>
+  <% if travel_stand.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(travel_stand.errors.count, "error") %> prohibited this travel_stand from being saved:</h2>
+
+      <ul>
+      <% travel_stand.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

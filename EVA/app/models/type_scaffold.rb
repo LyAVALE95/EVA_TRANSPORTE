@@ -1,0 +1,2 @@
+class TypeScaffold < ApplicationRecord
+end

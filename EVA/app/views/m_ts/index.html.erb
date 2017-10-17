@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mts.each do |mt| %>
+      <tr>
+        <td><%= link_to 'Show', mt %></td>
+        <td><%= link_to 'Edit', edit_mt_path(mt) %></td>
+        <td><%= link_to 'Destroy', mt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mt', new_mt_path %>

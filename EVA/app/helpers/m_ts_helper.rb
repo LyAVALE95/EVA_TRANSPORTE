@@ -1,0 +1,2 @@
+module MTsHelper
+end

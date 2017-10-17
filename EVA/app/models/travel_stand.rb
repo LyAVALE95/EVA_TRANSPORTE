@@ -1,0 +1,2 @@
+class TravelStand < ApplicationRecord
+end

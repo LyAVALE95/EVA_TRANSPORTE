@@ -1,0 +1,2 @@
+class RateExpense < ApplicationRecord
+end

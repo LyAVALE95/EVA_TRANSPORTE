@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Type Scaffolds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_scaffolds.each do |type_scaffold| %>
+      <tr>
+        <td><%= link_to 'Show', type_scaffold %></td>
+        <td><%= link_to 'Edit', edit_type_scaffold_path(type_scaffold) %></td>
+        <td><%= link_to 'Destroy', type_scaffold, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type Scaffold', new_type_scaffold_path %>

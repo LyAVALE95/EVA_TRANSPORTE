@@ -1,0 +1,2 @@
+class Mt < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+module RateExpensesHelper
+end

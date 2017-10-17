@@ -1,0 +1,2 @@
+class CarrierLine < ApplicationRecord
+end
