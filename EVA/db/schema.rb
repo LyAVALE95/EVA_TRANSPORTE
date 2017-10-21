@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009104713) do
+ActiveRecord::Schema.define(version: 20171021233011) do
 
-  create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
     t.string "description"
     t.datetime "created_at", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["load_id"], name: "index_audits_on_load_id"
   end
 
-  create_table "carrier_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "carrier_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "legalName"
     t.string "tel"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["location_id"], name: "index_carrier_lines_on_location_id"
   end
 
-  create_table "clientcontacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "clientcontacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "names"
     t.string "lastnames"
     t.string "note"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["warehouse_id"], name: "index_clientcontacts_on_warehouse_id"
   end
 
-  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "companies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "legalName"
     t.string "code"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["location_id"], name: "index_companies_on_location_id"
   end
 
-  create_table "company_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "company_lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "carrier_line_id"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["company_id"], name: "index_company_lines_on_company_id"
   end
 
-  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "names"
     t.string "lastnames"
     t.string "address"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
-  create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "drivers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "code"
     t.string "department"
     t.string "names"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["user_id"], name: "index_drivers_on_user_id"
   end
 
-  create_table "licenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "licenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "type"
     t.float "cost", limit: 24
     t.datetime "validity"
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "loads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "loads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.datetime "arrivalDate"
     t.string "packageNumber"
     t.string "details"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["warehouse_id"], name: "index_loads_on_warehouse_id"
   end
 
-  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "locations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "RFID"
     t.string "name"
     t.string "address"
@@ -168,14 +168,14 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "quantity"
     t.float "cost", limit: 24
     t.string "size"
@@ -190,7 +190,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["type_scaffold_id"], name: "index_packages_on_type_scaffold_id"
   end
 
-  create_table "rate_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rate_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "description"
     t.boolean "active"
@@ -199,7 +199,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "stands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "description"
     t.string "timeMax"
@@ -214,7 +214,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["state_id"], name: "index_stands_on_state_id"
   end
 
-  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "code"
     t.string "grade"
@@ -223,7 +223,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "travel_stands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "travel_stands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.time "estimatedTime"
     t.time "realTime"
     t.datetime "dateOpen"
@@ -233,7 +233,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "travels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "travels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "gpsReads"
     t.datetime "gpsDate"
     t.string "details"
@@ -261,7 +261,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["truck_id"], name: "index_travels_on_truck_id"
   end
 
-  create_table "trucks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "trucks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "enrollment"
     t.string "model"
     t.string "quality"
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["license_id"], name: "index_trucks_on_license_id"
   end
 
-  create_table "type_scaffolds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "type_scaffolds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "description"
     t.string "weigth"
     t.string "size"
@@ -291,7 +291,7 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.index ["license_id"], name: "index_type_scaffolds_on_license_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "rol"
     t.string "description"
     t.datetime "birthday"
@@ -324,12 +324,14 @@ ActiveRecord::Schema.define(version: 20171009104713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "carrier_line_id"
+    t.bigint "company_id"
+    t.string "authentication_token", limit: 30
     t.index ["carrier_line_id"], name: "index_users_on_carrier_line_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "warehouses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "warehouses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.string "scheduleStart"
     t.string "scheduleEnd"
