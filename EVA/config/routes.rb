@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :drivers
   #get 'home/index'
 
+  
+   authenticated :user do
+    root :to => "locations#index"
+  end
   root 'home#welcome'
    resources :users_admin, :controller => 'users'
   devise_for :users, controllers: { registrations: "registrations", sessions: "sessions"}
