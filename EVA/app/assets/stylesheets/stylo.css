@@ -1,5 +1,40 @@
-.navbar.navbar-default{
+@media screen and (max-width: 768px) {
 
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+    background:#1FAB80;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -40%;
+    background-color: #1FAB80;
+  }
+
+  .row-offcanvas-left.active {
+    left: 40%;
+  }
+
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 40%;
+    margin-left: 12px;
+  }
+}
+
+#sidebar {
+    padding:15px;
+    margin-top:10px;
+    background-color: #1FAB89;
+    height: 500px;
+
+}
+.navbar.navbar-default.nav-eva{
+	/*background-color: #1FAB89;*/
 }
 #buttones li{
 	margin-top: 5px;
@@ -60,7 +95,8 @@ font-size: 7px;
 .formdata
 {
 	margin-top: 15px;
-	margin-left: 40px;
+	margin-left: 140px;
+	margin-top: 40px;
 	height: 100%;
 	
 }

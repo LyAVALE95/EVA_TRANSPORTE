@@ -10,6 +10,96 @@
       </ul>
     </div>
   <% end %>
+ <div class="col-md-12 block">
+        <div class="col-md-12 block">
+          <div class="form-group">
+            <%= form.label :name,"Nombre", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :name, id: :location_name, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :RFID ,"RFID", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :RFID, id: :location_RFID, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :coordinates, "Coordenadas", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :coordinates, id: :location_coordinates, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :address,"Direccion", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :address, id: :location_address, class: "form-control" %>
+              </div>
+          </div>
+          
+          <div class="form-group">
+            <%= form.label :street, "Calle",class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :street, id: :location_street, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :district,"Distrito", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :district, id: :location_district, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :extnum, "Numero Exterior", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :extnum, id: :location_extnum, class: "form-control" %>
+              </div>
+          </div>
+           <div class="form-group">
+            <%= form.label :intnum, "Numero Interior", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :intnum, id: :location_intnum, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :zipcode,"CP",  class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :zipcode, id: :location_zipcode, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :region, class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :region, id: :location_region, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :city,"Ciudad", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :city, id: :location_city, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :state,"Estado", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :state, id: :location_state, class: "form-control" %>
+              </div>
+          </div>
+            <div class="form-group">
+            <%= form.label :country,"Pais", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :country, id: :location_country, class: "form-control" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :description, "Descripcion", class: "control-label col-sm-4" %>
+              <div class="col-sm-8">
+                <%= form.text_field :description, id: :location_description, class: "form-control" %>
+              </div>
+          </div>
+         
+        </div>
+      </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -1,44 +1,21 @@
-      <div id="navbar">
-  <% if user_signed_in? %>
-   
-        <div id="datosusr">
-          <span class="user"><span data-lang="lblUsuario">Usuario</span>:
-          <a href="/users/myuser" id="_txtnombreusuario">
-            <%= current_user.email %>
-          </a>
-          </span>
-          <span class="company"><span data-lang="lblCompania">Compañia</span>:
-          <a href="/companies/<%= current_user.company_id%>" id="_txtnombre_compania">
-           
-          </a>
-          </span>
-        </div>
-        <input type="text" class="form-control" id="txtSearch" placeholder="Buscar" data-lang="lblSearch" data-destine="placeholder">
-        <div class="search_icon"></div>
-        <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNav">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-  <% end %>
-      </div>
-</div>
-<div id="mainNav" aria-expanded="false" class="collapse" style="height: 0px;">
-  <div class="dropdown">
-    <a class="dropdown-toggle" data-toggle="dropdown">CATALOGOS<span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li><a href="/buyers" target="_self"><b>BUYERS</b></a></li>
-      <li><a href="/customers" target="_self"><b>CUSTOMERS</b></a></li>
-      <li><a href="/suppliers" target="_self"><b>SUPPLIERS</b></a></li>
-      <li><a href="/locations" target="_self"><b>LOCATIONS</b></a></li>
-      <li><a href="/products" target="_self"><b>PRODUCTS</b></a></li>
+   <% if user_signed_in? %>
+   <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+<nav class="navbar navbar-default nav-eva">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <h1 style="color: #1FAB89;" >EVA TRANSPORTE</h1>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right " id="buttones">
+     <li><a href="/travels"> Viajes</a></li>
+    <li><a href="/locations"> Localizaciones</a></li>
+     <li><a href="/locations"> Localizaciones</a></li>
+        <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>LOGOUT</b></a>
+      </li>
     </ul>
   </div>
-  <a href="/transportists" target="_self"><b>TRANSPORTISTS</b></a>
-  <a href="/pedimentos" target="_self"><b>PEDIMENTOS</b></a>
-  <a href="/containers" target="_self"><b>CONTAINERS</b></a>
-  <a href="/invoices" target="_self"><b>INVOICES</b></a>
-  <a href="/reports" target="_self"><b>REPORTS</b></a>
-  <a href="/notas_del_sistema" target="_self"><b>NOTAS DEL SISTEMA</b></a>
-  <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>LOGOUT</b></a>
-</div>
+</nav>
+
+
+ <% end %>

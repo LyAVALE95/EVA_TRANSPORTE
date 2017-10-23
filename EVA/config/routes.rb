@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   
    authenticated :user do
-    root :to => "locations#index"
+    root :to => "travels#index"
   end
   root 'home#welcome'
    resources :users_admin, :controller => 'users'
