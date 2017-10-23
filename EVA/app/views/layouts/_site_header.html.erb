@@ -1,0 +1,21 @@
+   <% if user_signed_in? %>
+   <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+<nav class="navbar navbar-default nav-eva">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <h1 style="color: #1FAB89;" >EVA TRANSPORTE</h1>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right " id="buttones">
+     <li><a href="/travels"> Viajes</a></li>
+    <li><a href="/locations"> Localizaciones</a></li>
+     <li><a href="/locations"> Localizaciones</a></li>
+        <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>LOGOUT</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+ <% end %>
