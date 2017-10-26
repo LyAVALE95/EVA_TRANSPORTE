@@ -32,6 +32,11 @@ html, html a, body {
 body {
   font-family: Hind, sans-serif;
 }
+label{
+   font-size: 18px;
+   margin-right: 10px;
+  color: #000;
+}
 
 p {
   font-size: 15px;
