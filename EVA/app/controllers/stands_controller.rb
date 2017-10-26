@@ -69,6 +69,6 @@ class StandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stand_params
-      params.fetch(:stand, {})
+       params.require(:stand).permit(:name, :description, :timeMax, :extSpent, :location_id, :state_id, :rate_expense_id)
     end
 end

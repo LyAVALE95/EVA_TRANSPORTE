@@ -69,6 +69,6 @@ class MTsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mt_params
-      params.fetch(:mt, {})
+   params.require(:mt).permit(:name, :description)
     end
 end

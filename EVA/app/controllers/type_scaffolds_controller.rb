@@ -69,6 +69,6 @@ class TypeScaffoldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_scaffold_params
-      params.fetch(:type_scaffold, {})
+      params.require(:type_scaffold).permit(:description, :weigth, :size, :category, :cost, :extraHours,:license_id)
     end
 end

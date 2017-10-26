@@ -69,6 +69,6 @@ class RateExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rate_expense_params
-      params.fetch(:rate_expense, {})
+        params.require(:rate_expense).permit(:name, :description, :active, :cost)
     end
 end
