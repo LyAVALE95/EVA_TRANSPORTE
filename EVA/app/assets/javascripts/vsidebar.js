@@ -1,6 +1,8 @@
+
 $(document).ready(function () {
+    
+$(".mainblock").css("margin-left", "70px");
 $("#sidebar-wrapper").animate({left: '0px'});
-$(".mainblock").css("margin-left", "70px")
     $("#sidebar-wrapper").hover(function(){
        // $(this).css("background-color", "yellow");
        $("#sidebar-wrapper").animate({left: '70px'});
@@ -11,6 +13,9 @@ $(".mainblock").css("margin-left", "70px")
        $(this).animate({left: '0px'});
             $(".mainblock").animate({left: '0px'});
     });
+
+   
+
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022002023) do
+ActiveRecord::Schema.define(version: 20171027041111) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -326,6 +326,8 @@ ActiveRecord::Schema.define(version: 20171022002023) do
     t.bigint "carrier_line_id"
     t.bigint "company_id"
     t.string "authentication_token", limit: 30
+    t.string "name"
+    t.string "lastName"
     t.index ["carrier_line_id"], name: "index_users_on_carrier_line_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

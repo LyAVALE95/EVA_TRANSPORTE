@@ -1,0 +1,39 @@
+<div class="col-md-12 block">
+<p id="notice"><%= notice %></p>
+
+<%= link_to '<button type="button" class="btn btn-success">Nuevo Usuario</button>'.html_safe, new_users_admin_path %>
+</br></br>
+
+<table id="userDataTable" data-src="users_admin" class="table table-striped table-bordered" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Lastname</th>
+      <th>Rol</th>
+      <th>Email</th>
+      <th>Last sign in</th>
+      <th>Controls</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+   
+      <td> <%= user.id %></td>
+      <td> <%= user.name %></td>
+      <td> <%= user.lastName %></td>
+      <td> <%= user.rol %></td>
+      <td> <%= user.email %></td>
+      <td> <%= user.last_sign_in_at %></td>
+      <td>
+        <%= link_to 'Edit', edit_users_admin_path(user) %>
+        <% if user.rol != 'administrador' && user.rol != 'ejecutivo' %>
+        <%= link_to 'Destroy', users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

@@ -1,13 +1,15 @@
 class UserController < ApplicationController
 
+
    before_action :only => [:show,:new, :edit ,:delete] do
 
-    redirect_to new_user_session_path unless current_user  && current_user.rol == "ejecutivo" || current_user.rol == "administrador"
+   redirect_to new_user_session_path unless current_user  && current_user.rol == "Transportista" || current_user.rol == "administrador"
+
   end
   # GET /users
   # GET /users.json
   def index
-    @users = User.where("company_id = ?", current_user.company_id)
+    @users = User.all
     @user = User.new
   end
 
@@ -67,7 +69,7 @@ class UserController < ApplicationController
   def update_none
     @user = User.find(params[:id])
     respond_to do |format|
-      if @user.update(user_params_up)
+      if @user.update(user_params)
         format.html { redirect_to users_admin_index_url, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -123,7 +125,7 @@ class UserController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.permit(:name, :rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)
+      params.permit(:name, :lastName,:rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)
     end
       def user_params_up
       params.permit(:name, :last_name, :email, :rol,:user_img)
