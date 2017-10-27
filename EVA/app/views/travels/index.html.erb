@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Viajes</h1>
-<button><%= link_to 'Nuevo Viaje', new_travel_path %></button>
+<button class="btn2 btn-danger btn-lg"> <%= link_to 'Nuevo Viaje', new_travel_path %></button>
 <br>
 <% if @travels.count == 0 %>
   <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
