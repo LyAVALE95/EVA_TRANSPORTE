@@ -1,4 +1,8 @@
-
+.espaciolibre{
+  margin: 50px 50px 50px 50px;
+  margin-left: 350px;
+    border-radius: 360px;
+}
 
 .navbar-top {
   max-height: 100%;

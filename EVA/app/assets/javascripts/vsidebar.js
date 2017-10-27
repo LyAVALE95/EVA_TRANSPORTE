@@ -3,16 +3,6 @@ $(document).ready(function () {
     
 $(".mainblock").css("margin-left", "70px");
 $("#sidebar-wrapper").animate({left: '0px'});
-    $("#sidebar-wrapper").hover(function(){
-       // $(this).css("background-color", "yellow");
-       $("#sidebar-wrapper").animate({left: '70px'});
-        $(".mainblock").animate({left: '80px'});
-    },
-    function(){
-       // $(this).css("background-color", "yellow");
-       $(this).animate({left: '0px'});
-            $(".mainblock").animate({left: '0px'});
-    });
 
    
 
