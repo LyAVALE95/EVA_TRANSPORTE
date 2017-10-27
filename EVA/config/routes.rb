@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   
    authenticated :user do
-    root :to => "travels#index"
+    #root :to => "travels#index"
+    root :to => "companies#mycompany"
   end
   root 'home#welcome'
 
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
   end
 #root :to => redirect("menu#index")
   #get 'users' => 'users#myuser'
+     get 'companies' => 'companies#mycompany'
    get 'user' => 'user#index'
   get 'users' => 'users#myuser'
   post'users_admin/new' => 'user#create'

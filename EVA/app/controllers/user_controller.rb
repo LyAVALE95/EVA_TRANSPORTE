@@ -6,10 +6,12 @@ class UserController < ApplicationController
    redirect_to new_user_session_path unless current_user  && current_user.rol == "Transportista" || current_user.rol == "administrador"
 
   end
+
+
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where("company_id = ?", current_user.company_id)
     @user = User.new
   end
 
@@ -46,6 +48,7 @@ class UserController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+     @user.company_id = current_user.company_id
 =begin    
     if params[:commit] == "Crear usuario"
         @user.company_id = current_user.company_id
@@ -84,6 +87,7 @@ class UserController < ApplicationController
   # @user = User.find(params[:id])
     @user = User.find(current_user.id)
     @user.update_attributes(user_params_up)
+    @user.company_id = current_user.company_id
     if @user.errors.any?
       render :action => :myuser
     else
@@ -128,7 +132,7 @@ class UserController < ApplicationController
       params.permit(:name, :lastName,:rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)
     end
       def user_params_up
-      params.permit(:name, :last_name, :email, :rol,:user_img)
+      params.permit(:name, :last_name, :email, :rol,:company_attributes =>[:name, :legalName, :code, :tel, :active])
     end
   
 end

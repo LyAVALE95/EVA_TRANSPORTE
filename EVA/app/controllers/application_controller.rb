@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
 
   protected
 
+def set_current_user
+      User.current = current_user
+    end
     def configure_permitted_parameters
     #added_attrs = [:name,:last_name, :email, :password, :password_confirmation, :remember_me]
     #devise_parameter_sanitizer.permit :sign_up, keys: added_attrs

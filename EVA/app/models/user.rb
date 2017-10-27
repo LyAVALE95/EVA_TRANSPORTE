@@ -6,7 +6,8 @@ class User < ApplicationRecord
 
      # attr_accessor :name, :lastName, :rol
   before_save :default_admin
-
+    belongs_to :company
+accepts_nested_attributes_for :company
  # accepts_nested_attributes_for :company
   acts_as_token_authenticatable
 

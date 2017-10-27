@@ -12,6 +12,9 @@ class CompanyLinesController < ApplicationController
   def show
   end
 
+def mycompany
+  @company = current_user.company_id
+end
   # GET /company_lines/new
   def new
     @company_line = CompanyLine.new
