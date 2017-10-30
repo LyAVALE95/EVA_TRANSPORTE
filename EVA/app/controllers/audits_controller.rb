@@ -4,7 +4,7 @@ class AuditsController < ApplicationController
   # GET /audits
   # GET /audits.json
   def index
-    @audits = Audit.all
+    @audits = Audit.where("company_id = ?", current_user.company_id)
   end
 
   # GET /audits/1

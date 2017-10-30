@@ -4,7 +4,7 @@ class CarrierLinesController < ApplicationController
   # GET /carrier_lines
   # GET /carrier_lines.json
   def index
-    @carrier_lines = CarrierLine.all
+    @carrier_lines = CarrierLine.where("company_id = ?", current_user.company_id)
   end
 
   # GET /carrier_lines/1

@@ -4,7 +4,7 @@ class TravelsController < ApplicationController
   # GET /travels
   # GET /travels.json
   def index
-    @travels = Travel.all
+    @travels = Travel.where("company_id = ?", current_user.company_id)
   end
 
   # GET /travels/1

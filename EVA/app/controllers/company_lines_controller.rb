@@ -4,7 +4,7 @@ class CompanyLinesController < ApplicationController
   # GET /company_lines
   # GET /company_lines.json
   def index
-    @company_lines = CompanyLine.all
+    @company_lines = CompanyLine.where("company_id = ?", current_user.company_id)
   end
 
   # GET /company_lines/1

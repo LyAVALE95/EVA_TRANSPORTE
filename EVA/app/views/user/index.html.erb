@@ -1,3 +1,4 @@
+<% if current_user.company_id? %>
 <div class="col-md-12 block">
 <p id="notice"><%= notice %></p>
 
@@ -37,3 +38,14 @@
   </tbody>
 </table>
 </div>
+<%else %>
+<h1>Mi compañia</h1>
+<img src="/assets/Bienvenido.png" alt="Mountain View" class="sincompania">
+<button class="btn2 btn-warning btn-lg btnhard"
+ style="width: 500px;margin-left: 350px;height: 100px;
+ margin-top: 10px;"
+ onclick="window.location.href = '/companies/new'">
+<b>Crear mi compañia</b>
+</button>
+
+<%  end %>

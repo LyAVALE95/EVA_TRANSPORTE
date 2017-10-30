@@ -47,8 +47,10 @@ class UserController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-     @user.company_id = current_user.company_id
+    @user = User.new(user_params)  
+      if current_user.company_id
+        @user.company_id = current_user.company_id
+  end
 =begin    
     if params[:commit] == "Crear usuario"
         @user.company_id = current_user.company_id
@@ -56,6 +58,7 @@ class UserController < ApplicationController
 =end    
     respond_to do |format|
       if @user.save
+        #@user.company_id = current_user.company_id
         format.html { redirect_to users_admin_index_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -129,7 +132,7 @@ class UserController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.permit(:name, :lastName,:rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)
+      params.permit(:name, :lastName,:rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password,:company_id)
     end
       def user_params_up
       params.permit(:name, :last_name, :email, :rol,:company_attributes =>[:name, :legalName, :code, :tel, :active])

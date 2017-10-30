@@ -4,7 +4,7 @@ class ClientcontactsController < ApplicationController
   # GET /clientcontacts
   # GET /clientcontacts.json
   def index
-    @clientcontacts = Clientcontact.all
+    @clientcontacts = Clientcontact.where("company_id = ?", current_user.company_id)
   end
 
   # GET /clientcontacts/1

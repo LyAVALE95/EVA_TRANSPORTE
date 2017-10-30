@@ -13,7 +13,7 @@ def set_current_user
     #added_attrs = [:name,:last_name, :email, :password, :password_confirmation, :remember_me]
     #devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     #devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password) }
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)}
     end
 end
 

@@ -5,8 +5,17 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def mycompany
-    @company  = current_user.company
+      if current_user.company_id
+        @company = Company.where("id = ?",current_user.company_id).first
+       #@company  = current_user.company
+ respond_to do |format|  ## Add this
+    format.json { render json: @company, status: :ok}
+    format.html
+  end  
+      end
+
   end
+
   def index
     @companies = Company.all
   end
@@ -31,14 +40,14 @@ class CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     @user = current_user
-     @userid = current_user.id
+     #@userid = current_user.id
     #@user.update_attributes({ :name => 'Gip'})
     #@update_current_profile = User.update(@user, 
       #{:company_id => @company.id})
 
     respond_to do |format|
       if @company.save
-              @user.update_attribute(:company_id, @company.id)
+         @user.update_attribute(:company_id, @company.id)
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
       else

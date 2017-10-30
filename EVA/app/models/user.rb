@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
      # attr_accessor :name, :lastName, :rol
   before_save :default_admin
-    belongs_to :company
-accepts_nested_attributes_for :company
+   # belongs_to :company
+#accepts_nested_attributes_for :company
  # accepts_nested_attributes_for :company
   acts_as_token_authenticatable
 
@@ -16,7 +16,7 @@ accepts_nested_attributes_for :company
   def default_admin
     if self.rol == nil
       #self.company_id ||= self.company.id
-      self.rol ||= "cliente"
+      self.rol ||= "Transportista"
     
     end
 
