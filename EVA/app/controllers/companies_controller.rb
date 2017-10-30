@@ -7,6 +7,11 @@ class CompaniesController < ApplicationController
   def mycompany
       if current_user.company_id
         @company = Company.where("id = ?",current_user.company_id).first
+
+        @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+        marker.lat user.latitude
+        marker.lng user.longitude
+      end
        #@company  = current_user.company
  respond_to do |format|  ## Add this
     format.json { render json: @company, status: :ok}
