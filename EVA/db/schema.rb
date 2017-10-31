@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171022002023) do
+ActiveRecord::Schema.define(version: 20171030083609) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20171022002023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "load_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_audits_on_company_id"
     t.index ["load_id"], name: "index_audits_on_load_id"
   end
 
@@ -166,6 +168,8 @@ ActiveRecord::Schema.define(version: 20171022002023) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_locations_on_company_id"
   end
 
   create_table "mts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -326,6 +330,8 @@ ActiveRecord::Schema.define(version: 20171022002023) do
     t.bigint "carrier_line_id"
     t.bigint "company_id"
     t.string "authentication_token", limit: 30
+    t.string "name"
+    t.string "lastName"
     t.index ["carrier_line_id"], name: "index_users_on_carrier_line_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -347,6 +353,7 @@ ActiveRecord::Schema.define(version: 20171022002023) do
     t.index ["location_id"], name: "index_warehouses_on_location_id"
   end
 
+  add_foreign_key "audits", "companies"
   add_foreign_key "audits", "loads"
   add_foreign_key "carrier_lines", "locations"
   add_foreign_key "clientcontacts", "customers"
@@ -365,6 +372,7 @@ ActiveRecord::Schema.define(version: 20171022002023) do
   add_foreign_key "loads", "states"
   add_foreign_key "loads", "type_scaffolds", column: "type_scaffolds_id"
   add_foreign_key "loads", "warehouses"
+  add_foreign_key "locations", "companies"
   add_foreign_key "packages", "loads"
   add_foreign_key "packages", "states"
   add_foreign_key "packages", "type_scaffolds"

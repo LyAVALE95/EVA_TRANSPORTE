@@ -1,25 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carrier Lines</h1>
+<h1>Líneas de transporte</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/carrier_lines/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @carrier_lines.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
+     <th> <button>#</button></th>
+     <th>Nombre</th>
+     <th>Razón Social</th>
+     <th>Telefóno</th>
+     <th>Correo electrónico</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @carrier_lines.each do |carrier_line| %>
+    <% @carrier_lines.each_with_index  do |carrier_line, index| %>
       <tr>
-        <td><%= link_to 'Show', carrier_line %></td>
-        <td><%= link_to 'Edit', edit_carrier_line_path(carrier_line) %></td>
-        <td><%= link_to 'Destroy', carrier_line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <td> <%= index + 1 %></td>
+      <td><%= carrier_line.name%></td>
+      <td><%= carrier_line.legalName%></td>
+      <td><%= carrier_line.tel%></td>
+      <td><%= carrier_line.mail%></td>
+        <td><%= link_to 'Mostrar', carrier_line %></td>
+        <td><%= link_to 'Editar', edit_carrier_line_path(carrier_line) %></td>
+        <td><%= link_to 'Eliminar', carrier_line, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+  <% end %>
 <br>
 
-<%= link_to 'New Carrier Line', new_carrier_line_path %>
+

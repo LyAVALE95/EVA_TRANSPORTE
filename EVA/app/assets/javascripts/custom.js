@@ -1,5 +1,5 @@
 /*global jQuery:false */
-(function ($) {
+/*(function ($) {
 
 	var wow = new WOW(
 	  {
@@ -90,3 +90,4 @@ $(window).load(function() {
 });
 
 	
+*/

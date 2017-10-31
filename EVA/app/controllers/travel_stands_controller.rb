@@ -69,6 +69,6 @@ class TravelStandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def travel_stand_params
-      params.fetch(:travel_stand, {})
+     params.require(:travel_stand).permit(:estimatedTime, :realTime, :dateOpen, :dateClose, :description)
     end
 end

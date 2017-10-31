@@ -1,6 +1,24 @@
+   <script type="text/javascript">
+     $(".mainblock").css("margin-left", "70px");
+$("#sidebar-wrapper").animate({left: '0px'});
+
+
+    $("#sidebar-wrapper").hover(function(){
+       // $(this).css("background-color", "yellow");
+       $("#sidebar-wrapper").animate({left: '70px'});
+        $(".mainblock").animate({left: '80px'});
+    },
+    function(){
+       // $(this).css("background-color", "yellow");
+       $(this).animate({left: '0px'});
+            $(".mainblock").animate({left: '0px'});
+    });
+
+
+   </script>
    <% if user_signed_in? %>
-   <div class="navbar navbar-fixed-top navbar-default" role="navigation">
-<nav class="navbar navbar-default nav-eva">
+   <div class="navbar navbar-fixed-top navbar-top navbar-default" role="navigation">
+<nav class="navbar navbar-default nav-eva mainblock">
   <div class="container-fluid">
     <div class="navbar-header">
 
@@ -10,7 +28,12 @@
     <ul class="nav navbar-nav navbar-right " id="buttones">
      <li><a href="/travels"> Viajes</a></li>
     <li><a href="/locations"> Localizaciones</a></li>
-     <li><a href="/locations"> Localizaciones</a></li>
+     <li><a href="/drivers"> Conductores</a></li>
+      <li><a href="/stands"> Estaciones</a></li>
+       <li><a href="/travel_stands"> Paradas</a></li>
+        <li><a href="/trucks"> Camiones</a></li>
+         <li><a href="/type_scaffolds"> Acciones</a></li>
+          <li><a href="/warehouses"> Bodegas</a></li>
         <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>LOGOUT</b></a>
       </li>
     </ul>

@@ -1,25 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Travels</h1>
-
-<table>
+<h1>Viajes</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/travels/new'">
+Nuevo
+</button>
+<br>
+<% if @travels.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table  id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      
+      <th>Lecturas GPS</th>
+      <th>Detalles</th>
+      <th>Horas planeadas</th>
+      <th>Horas concluidas</th>
+      <th>Línea transportista</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
+  
     <% @travels.each do |travel| %>
       <tr>
-        <td><%= link_to 'Show', travel %></td>
-        <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
-        <td><%= link_to 'Destroy', travel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= travel.gpsReads %></td>
+         <td><%= travel.details %></td>
+          <td><%= travel.hoursPlanned %></td>
+           <td><%= travel.hoursTraveled %></td>
+           <td><%= travel.carrier_line_id %></td>
+        <td><%= link_to 'Mostrar', travel %></td>
+        <td><%= link_to 'Editar', edit_travel_path(travel) %></td>
+        <td><%= link_to 'Eliminar', travel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Travel', new_travel_path %>
+

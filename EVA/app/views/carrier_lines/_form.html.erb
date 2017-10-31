@@ -10,6 +10,49 @@
       </ul>
     </div>
   <% end %>
+<div class="col-md-12 block formulary">
+        <div class="col-md-12 block">
+          <div class="form-group">
+            <%= form.label :name,"Nombre", class: "control-label  col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :name, id: :cl_name, class: "form-control border" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :legalName ,"Razón Social", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :legalName, id: :cl_legalName, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :tel ,"Telefóno", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :tel, id: :cl_tel, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :mail ,"Correo electrónico", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :mail, id: :cl_mail, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :commercialBusiness ,"Giro", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :commercialBusiness, id: :cl_cb, class: "form-control border" %>
+              </div>
+          </div>
+             <div class="form-group">
+            <%= form.label :code ,"Código:", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :code, id: :cl_code, class: "form-control border" %>
+              </div>
+          </div>
+     
+           
+        </div>
+
+      </div>
 
   <div class="actions">
     <%= form.submit %>

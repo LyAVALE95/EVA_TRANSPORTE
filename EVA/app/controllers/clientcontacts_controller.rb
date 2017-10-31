@@ -4,7 +4,7 @@ class ClientcontactsController < ApplicationController
   # GET /clientcontacts
   # GET /clientcontacts.json
   def index
-    @clientcontacts = Clientcontact.all
+    @clientcontacts = Clientcontact.where("company_id = ?", current_user.company_id)
   end
 
   # GET /clientcontacts/1
@@ -69,6 +69,6 @@ class ClientcontactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clientcontact_params
-      params.fetch(:clientcontact, {})
+   params.require(:clientcontact).permit(:name, :legalName, :tel, :mail,:comercialBusiness, :active, :code)
     end
 end

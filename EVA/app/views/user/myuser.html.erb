@@ -1,0 +1,48 @@
+<% if current_user.rol == 'administrador'%>
+<%= link_to '<button type="button" class="btn btn-success pull-left">Mis Usuarios</button>'.html_safe, users_admin_index_url %>
+<% end %>
+<div id="usertb">
+<table >
+<tr><td>
+  <% if user_signed_in? %>
+   <!-- <img src="http://s3-us-west-2.amazonaws.com/testvaleria/images/Paul.jpg.jpg"/>-->
+ 
+    <%= 
+     if current_user.user_img? 
+  longurlimg = current_user.user_img.to_s.length;
+  dt =  current_user.user_img.to_s.index('?');
+   urlimg = current_user.user_img.to_s[0..dt].to_s;
+    urlimg[7..8] = "s3-us-west-2";
+    image_tag( "#{urlimg}" , :alt => "rss feed", :class => "round");
+  else
+    image_tag( "/assets/none.png" , :alt => "rss feed", :class => "round");
+  end
+     %>
+<!--<%= image_tag(current_user.user_img, :alt => "rss feed") %>-->
+<!--<span class="user"><a href="javascript:view.Profile()" id="_txtnombreusuario"><%= current_user.user_img %></a></span>-->
+    <% end %>
+    </td>
+    
+    <td >
+    <div class="datosDelUsuario">
+     <h1 class="titulo">
+        MI USUARIO
+      </h1>
+      <p class=""><span data-lang="lblUsuario">User: </span><%= current_user.email %></p>
+       <p class=""><span data-lang="lblUsuario">Name:</span><%= current_user.name %></p>
+        <p class=""><span data-lang="lblUsuario">Lastname:</span><%= current_user.last_name %></p>
+        </div>
+        <tr>
+        <td>
+          <submit class='btnedit'> 
+            <a href="/users_admin/<%= current_user.id%>/edit">
+          Editar 
+          </a></submit>
+        </td>
+        </tr>
+    </td>
+    </tr>
+
+</table>
+
+</div>

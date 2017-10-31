@@ -3,4 +3,18 @@ class ApplicationController < ActionController::Base
   respond_to :html, :json
    protect_from_forgery with: :null_session
   acts_as_token_authentication_handler_for User, fallback_to_devise: false
+
+  protected
+
+def set_current_user
+      User.current = current_user
+    end
+    def configure_permitted_parameters
+    #added_attrs = [:name,:last_name, :email, :password, :password_confirmation, :remember_me]
+    #devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    #devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :rol, :description, :birthday, :hireDate, :section, :category, :RFC, :address, :district, :intnum, :extnum, :state, :zipcode, :country, :tel, :telMov, :schedule, :note, :email, :password)}
+    end
 end
+
+

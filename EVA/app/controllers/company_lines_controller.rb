@@ -4,7 +4,7 @@ class CompanyLinesController < ApplicationController
   # GET /company_lines
   # GET /company_lines.json
   def index
-    @company_lines = CompanyLine.all
+    @company_lines = CompanyLine.where("company_id = ?", current_user.company_id)
   end
 
   # GET /company_lines/1
@@ -12,6 +12,9 @@ class CompanyLinesController < ApplicationController
   def show
   end
 
+def mycompany
+  @company = current_user.company_id
+end
   # GET /company_lines/new
   def new
     @company_line = CompanyLine.new
@@ -69,6 +72,6 @@ class CompanyLinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_line_params
-      params.fetch(:company_line, {})
+     params.require(:company_line).permit(:carrier_line_d, :company_id)
     end
 end

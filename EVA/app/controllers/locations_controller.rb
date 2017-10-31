@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = Location.where("company_id = ?", current_user.company_id)
   end
 
   # GET /locations/1
@@ -25,7 +25,9 @@ class LocationsController < ApplicationController
   # POST /locations.json
   def create
     @location = Location.new(location_params)
-
+    if current_user.company_id
+      @location.company_id =  current_user.company_id
+    end
     respond_to do |format|
       if @location.save
         format.html { redirect_to @location, notice: 'Location was successfully created.' }
@@ -69,6 +71,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.fetch(:location, {})
+      params.require(:location).permit(:name,:RFID, :coordinates, :address, :street,:district, :extnum, :intnum, :zipCode, :region,:city,:state, :country, :description)
     end
 end

@@ -4,7 +4,7 @@ class TravelsController < ApplicationController
   # GET /travels
   # GET /travels.json
   def index
-    @travels = Travel.all
+    @travels = Travel.where("company_id = ?", current_user.company_id)
   end
 
   # GET /travels/1
@@ -69,6 +69,6 @@ class TravelsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def travel_params
-       params.permit(:gpsReads, :gpsDate, :details, :cost, :kms, :hoursPlanned,:hoursTraveled, :idOrigen, :idDestine, :carrier_line_id, :company_id, :load_id, :driver_id, :state_id, :truck_id, :mt_id, )
+       params.require(:travel).permit(:gpsReads, :gpsDate, :details, :cost, :kms, :hoursPlanned,:hoursTraveled, :idOrigen, :idDestine, :carrier_line_id, :company_id, :load_id, :driver_id, :state_id, :truck_id, :mt_id )
     end
 end

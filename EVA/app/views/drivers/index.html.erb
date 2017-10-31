@@ -1,7 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Drivers</h1>
-
+<h1>Conductores</h1>
+<button class="btn2 btn-danger btn-lg"><%= link_to 'Nuevo', new_driver_path %></button>
+<br>
+<% if @drivers.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
 <table>
   <thead>
     <tr>
@@ -19,7 +23,7 @@
     <% end %>
   </tbody>
 </table>
-
+ <% end %>
 <br>
 
-<%= link_to 'New Driver', new_driver_path %>
+

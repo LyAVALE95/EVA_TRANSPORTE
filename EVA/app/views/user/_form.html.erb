@@ -1,0 +1,62 @@
+<%= form_with(model: @users, local: true, class: "form-horizontal") do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="col-md-12 block">
+ <div class="form-group">
+            <%= form.label :name,"Nombres", class: "control-label  col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :name, id: :location_name, class: "form-control border",value: @user.name %>
+              </div>
+          </div>
+
+ <div class="form-group">
+            <%= form.label :lastName,"Apellidos", class: "control-label  col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :lastName, id: :location_name, class: "form-control border",value: @user.lastName %>
+              </div>
+          </div>
+
+  <div class="form-group">
+            <%= form.label :email,"Correo electrónico", class: "control-label  col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :email, id: :location_name, class: "form-control border",value: @user.email %>
+              </div>
+          </div>
+<% if @user.new_record?%>
+  <div class="form-group">
+    <%= form.label :password,"Contraseña", class: "control-label col-sm-1" %>
+    <div class="col-sm-11">
+      <%= form.text_field :password, id: :user_password, class: "form-control border",value: @user.password %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password_confirmation,"Confirmar contraseña", class: "control-label col-sm-1" %>
+    <div class="col-sm-11">
+      <%= form.text_field :password_confirmation, id: :user_password_confirmation, class: "form-control border",value: @user.password %>
+    </div>
+  </div>
+<%end %>
+  <div class="form-group">
+    <%= form.label :rol, class: "control-label col-sm-1" %>
+      <div class="col-sm-11">
+        <%= form.select(:rol, options_for_select(['Transportista','Cliente', 'Conductor'],:selected => @user.rol),{}, { :class => 'form-control border', id: :user_rol }) %>
+      </div>
+  </div>
+</div>
+
+<div class="col-md-12 block">
+    <%= form.submit class: "btn btn-success" %>
+</div>
+<% end %>

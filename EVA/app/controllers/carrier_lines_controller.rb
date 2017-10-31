@@ -4,7 +4,7 @@ class CarrierLinesController < ApplicationController
   # GET /carrier_lines
   # GET /carrier_lines.json
   def index
-    @carrier_lines = CarrierLine.all
+    @carrier_lines = CarrierLine.where("company_id = ?", current_user.company_id)
   end
 
   # GET /carrier_lines/1
@@ -69,6 +69,6 @@ class CarrierLinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def carrier_line_params
-      params.fetch(:carrier_line, {})
+       params.require(:carrier_line).permit(:name, :legalName, :tel,:mail, :comercialBusiness, :active, :code)
     end
 end
