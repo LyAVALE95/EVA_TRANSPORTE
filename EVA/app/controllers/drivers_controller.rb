@@ -4,7 +4,8 @@ class DriversController < ApplicationController
   # GET /drivers
   # GET /drivers.json
   def index
-    @drivers = Driver.all
+    #@drivers = Driver.all
+    @drivers = Driver.where("user_id = ?", current_user.id)
   end
 
   # GET /drivers/1
@@ -25,7 +26,9 @@ class DriversController < ApplicationController
   # POST /drivers.json
   def create
     @driver = Driver.new(driver_params)
-
+       if current_user.company_id
+         @driver.user_id = current_user.id
+       end
     respond_to do |format|
       if @driver.save
         format.html { redirect_to @driver, notice: 'Driver was successfully created.' }
@@ -69,6 +72,6 @@ class DriversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_params
-    params.require(:driver).permit(:code, :department,:names,:lastnames, :rfc,:hiredDate )
+    params.require(:driver).permit(:code, :department,:names,:lastnames, :rfc,:hiredDate,:user_id )
     end
 end
