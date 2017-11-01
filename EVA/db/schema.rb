@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101062222) do
+ActiveRecord::Schema.define(version: 20171101115059) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20171101062222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "location_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_carrier_lines_on_company_id"
     t.index ["location_id"], name: "index_carrier_lines_on_location_id"
   end
 
@@ -179,6 +181,8 @@ ActiveRecord::Schema.define(version: 20171101062222) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_mts_on_company_id"
   end
 
   create_table "packages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -281,6 +285,8 @@ ActiveRecord::Schema.define(version: 20171101062222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "license_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_trucks_on_company_id"
     t.index ["license_id"], name: "index_trucks_on_license_id"
   end
 
@@ -294,6 +300,8 @@ ActiveRecord::Schema.define(version: 20171101062222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "license_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_type_scaffolds_on_company_id"
     t.index ["license_id"], name: "index_type_scaffolds_on_license_id"
   end
 
@@ -357,6 +365,7 @@ ActiveRecord::Schema.define(version: 20171101062222) do
 
   add_foreign_key "audits", "companies"
   add_foreign_key "audits", "loads"
+  add_foreign_key "carrier_lines", "companies"
   add_foreign_key "carrier_lines", "locations"
   add_foreign_key "clientcontacts", "customers"
   add_foreign_key "clientcontacts", "warehouses"
@@ -376,6 +385,7 @@ ActiveRecord::Schema.define(version: 20171101062222) do
   add_foreign_key "loads", "type_scaffolds", column: "type_scaffolds_id"
   add_foreign_key "loads", "warehouses"
   add_foreign_key "locations", "companies"
+  add_foreign_key "mts", "companies"
   add_foreign_key "packages", "loads"
   add_foreign_key "packages", "states"
   add_foreign_key "packages", "type_scaffolds"
@@ -389,7 +399,9 @@ ActiveRecord::Schema.define(version: 20171101062222) do
   add_foreign_key "travels", "mts"
   add_foreign_key "travels", "states"
   add_foreign_key "travels", "trucks"
+  add_foreign_key "trucks", "companies"
   add_foreign_key "trucks", "licenses"
+  add_foreign_key "type_scaffolds", "companies"
   add_foreign_key "type_scaffolds", "licenses"
   add_foreign_key "users", "carrier_lines"
   add_foreign_key "warehouses", "clientcontacts"
