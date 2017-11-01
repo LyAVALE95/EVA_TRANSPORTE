@@ -1,3 +1,4 @@
+
 <%= form_with(model: load, local: true) do |form| %>
   <% if load.errors.any? %>
     <div id="error_explanation">
@@ -10,6 +11,50 @@
       </ul>
     </div>
   <% end %>
+    <div class="col-md-12 block formulary">
+        <div class="col-md-12 block">
+          <div class="form-group">
+            <%= form.label :arrivalDate,"Fecha de llegada", class: "control-label  col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :arrivalDate, id: :audit_results, class: "form-control datepicker border" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :packageNumber ,"Número de paquete", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :packageNumber, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :details ,"Detalles", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :details, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :check ,"Verificado", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.check_box :check, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :cost ,"Costo", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :cost, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+
+
+
+
+         
+     
+           
+        </div>
+
+      </div>
+
+
 
   <div class="actions">
     <%= form.submit %>
