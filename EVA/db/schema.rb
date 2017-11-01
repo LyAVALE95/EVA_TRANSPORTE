@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030083609) do
+ActiveRecord::Schema.define(version: 20171101062222) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -124,11 +124,13 @@ ActiveRecord::Schema.define(version: 20171030083609) do
   end
 
   create_table "licenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "type"
+    t.string "type_license"
     t.float "cost", limit: 24
     t.datetime "validity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_licenses_on_user_id"
   end
 
   create_table "loads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -367,6 +369,7 @@ ActiveRecord::Schema.define(version: 20171030083609) do
   add_foreign_key "drivers", "licenses"
   add_foreign_key "drivers", "trucks"
   add_foreign_key "drivers", "users"
+  add_foreign_key "licenses", "users"
   add_foreign_key "loads", "carrier_lines"
   add_foreign_key "loads", "customers"
   add_foreign_key "loads", "states"
