@@ -25,6 +25,9 @@ class LoadsController < ApplicationController
   # POST /loads.json
   def create
     @load = Load.new(load_params)
+    if current_user.company_id
+         @load.carrier_line_id = current_user.company_id
+       end
 
     respond_to do |format|
       if @load.save
