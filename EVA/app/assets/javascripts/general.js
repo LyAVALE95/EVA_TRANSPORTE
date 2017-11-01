@@ -13,5 +13,5 @@ $("#menu-toggle").click(function(e) {
 
 
   $( function() {
-    $( ".datepicker" ).datepicker();
+    $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
   } );

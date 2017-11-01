@@ -1,17 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Loads</h1>
+<h1>Cargas</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/loads/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @loads.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
-      <th colspan="3"></th>
+    <th>Fecha de arribo</th>
+    <th>Numero de paquete</th>
+    <th>Costo</th>
+    <th>Cliente</th>
+    <th>Línea de transporte</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @loads.each do |load| %>
+    <% @loads.each_with_index do |load, index| %>
       <tr>
+        <td><%= load.arrivalDate %></td>
+         <td><%= load.packageNumber %></td>
+           <td><%= load.cost %></td>
+             <td><%= load.customer_id %></td>
+               <td><%= load.carrier_line_id %></td>
         <td><%= link_to 'Show', load %></td>
         <td><%= link_to 'Edit', edit_load_path(load) %></td>
         <td><%= link_to 'Destroy', load, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -19,7 +37,6 @@
     <% end %>
   </tbody>
 </table>
-
+   <% end %>
 <br>
 
-<%= link_to 'New Load', new_load_path %>
