@@ -285,8 +285,6 @@ ActiveRecord::Schema.define(version: 20171101115059) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "license_id"
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_trucks_on_company_id"
     t.index ["license_id"], name: "index_trucks_on_license_id"
   end
 
@@ -399,7 +397,6 @@ ActiveRecord::Schema.define(version: 20171101115059) do
   add_foreign_key "travels", "mts"
   add_foreign_key "travels", "states"
   add_foreign_key "travels", "trucks"
-  add_foreign_key "trucks", "companies"
   add_foreign_key "trucks", "licenses"
   add_foreign_key "type_scaffolds", "companies"
   add_foreign_key "type_scaffolds", "licenses"

@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get 'users' => 'users#myuser'
   post'users_admin/new' => 'user#create'
   post 'users_admin/:id/edit' => 'user#update_none'
+  post 'travels2/:id' => 'travels#index2'
   #delete 'users' => 'users#myuser'
 
 

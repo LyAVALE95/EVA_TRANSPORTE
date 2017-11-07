@@ -25,7 +25,9 @@ class CarrierLinesController < ApplicationController
   # POST /carrier_lines.json
   def create
     @carrier_line = CarrierLine.new(carrier_line_params)
-
+    if current_user.company_id
+        @carrier_line.company_id = current_user.company_id
+    end
     respond_to do |format|
       if @carrier_line.save
         format.html { redirect_to @carrier_line, notice: 'Carrier line was successfully created.' }

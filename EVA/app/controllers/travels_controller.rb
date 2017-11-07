@@ -5,8 +5,18 @@ class TravelsController < ApplicationController
   # GET /travels.json
   def index
     @travels = Travel.where("company_id = ?", current_user.company_id)
+    respond_to do |format|
+        format.json { render json: @travels }
+    end
   end
 
+  def index2
+    @trav = travels.find(params[:id])
+    @travels = Travel.where("company_id = ?", )
+    respond_to do |format|
+        format.json { render json: @travels }
+    end
+  end
   # GET /travels/1
   # GET /travels/1.json
   def show
@@ -25,6 +35,9 @@ class TravelsController < ApplicationController
   # POST /travels.json
   def create
     @travel = Travel.new(travel_params)
+    if current_user.company_id
+        @travel.company_id = current_user.company_id
+    end
 
     respond_to do |format|
       if @travel.save
