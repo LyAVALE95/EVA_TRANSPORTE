@@ -25,7 +25,9 @@ class ClientcontactsController < ApplicationController
   # POST /clientcontacts.json
   def create
     @clientcontact = Clientcontact.new(clientcontact_params)
-
+     if current_user.company_id
+         @clientcontact.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @clientcontact.save
         format.html { redirect_to @clientcontact, notice: 'Clientcontact was successfully created.' }

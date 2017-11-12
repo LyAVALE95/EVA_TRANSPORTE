@@ -1,8 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Locations</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/stands/new'">
+Nuevo
+</button>
 
-<table  id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered" >
+<br>
+<% if @locations.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
       <th> <button>#</button></th>
@@ -33,7 +41,6 @@
     <% end %>
   </tbody>
 </table>
-
+<% end %>
 <br>
 
-<%= link_to 'New Location', new_location_path %>

@@ -90,7 +90,11 @@ background-color: 	#4a9e68;
 	background-color: #f44336;
 		border-color: #FFF;
 }
-
+.btn-options{
+  background-color: #008080;
+    border-color: #1FAB89;
+    font-style: bold;
+}
 .welcomebody{
 	width: 100%;
 	height: 100%; 

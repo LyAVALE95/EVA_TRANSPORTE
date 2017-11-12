@@ -25,7 +25,9 @@ class TravelsController < ApplicationController
   # POST /travels.json
   def create
     @travel = Travel.new(travel_params)
-
+       if current_user.company_id
+         @travel.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @travel.save
         format.html { redirect_to @travel, notice: 'Travel was successfully created.' }

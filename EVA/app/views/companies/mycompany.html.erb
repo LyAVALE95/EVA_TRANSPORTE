@@ -3,8 +3,9 @@
 <% if current_user.company_id? %>
  
 
+
 <h1><%= @company.name %></h1>
-    <td><%= link_to 'Edit', edit_company_path(@company) %></td>  
+    <td><%= link_to 'Editar compañia', edit_company_path(@company) %></td>  
 
 <%else%>
 <h1>Mi compañia</h1>

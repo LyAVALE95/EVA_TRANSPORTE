@@ -45,7 +45,7 @@ Rails.application.routes.draw do
   resources :stands
   resources :trucks
   resources :locations
-  resources :mts
+  resources :m_ts
   resources :states
   resources :licenses
   resources :rate_expenses

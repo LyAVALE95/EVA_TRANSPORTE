@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101115059) do
+ActiveRecord::Schema.define(version: 20171101121202) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -219,6 +219,8 @@ ActiveRecord::Schema.define(version: 20171101115059) do
     t.bigint "location_id"
     t.bigint "state_id"
     t.bigint "rate_expense_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_stands_on_company_id"
     t.index ["location_id"], name: "index_stands_on_location_id"
     t.index ["rate_expense_id"], name: "index_stands_on_rate_expense_id"
     t.index ["state_id"], name: "index_stands_on_state_id"
@@ -389,6 +391,7 @@ ActiveRecord::Schema.define(version: 20171101115059) do
   add_foreign_key "packages", "loads"
   add_foreign_key "packages", "states"
   add_foreign_key "packages", "type_scaffolds"
+  add_foreign_key "stands", "companies"
   add_foreign_key "stands", "locations"
   add_foreign_key "stands", "rate_expenses"
   add_foreign_key "stands", "states"

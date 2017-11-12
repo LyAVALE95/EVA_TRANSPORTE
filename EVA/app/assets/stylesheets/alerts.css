@@ -1,0 +1,14 @@
+#activo{
+	text-align: center;
+	background-color: #C4F1DD;
+	font-weight: bold;
+	font-size: 25px;
+	color: #1CA039;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	border-bottom: thick solid #1F4132;
+}
+#inactivo{
+	color: #AF1919;
+}
