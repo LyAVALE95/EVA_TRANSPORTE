@@ -30,8 +30,9 @@ Rails.application.routes.draw do
   end
 #root :to => redirect("menu#index")
   #get 'users' => 'users#myuser'
-     get 'companies' => 'companies#mycompany'
-   get 'user' => 'user#index'
+  get 'login' => 'home#login'
+  get 'companies' => 'companies#mycompany'
+  get 'user' => 'user#index'
   get 'users' => 'users#myuser'
   post'users_admin/new' => 'user#create'
   post 'users_admin/:id/edit' => 'user#update_none'

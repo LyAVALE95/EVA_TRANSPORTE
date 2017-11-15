@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101121202) do
+ActiveRecord::Schema.define(version: 20171112232117) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -233,6 +233,8 @@ ActiveRecord::Schema.define(version: 20171101121202) do
     t.string "protocol"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_states_on_company_id"
   end
 
   create_table "travel_stands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -395,6 +397,7 @@ ActiveRecord::Schema.define(version: 20171101121202) do
   add_foreign_key "stands", "locations"
   add_foreign_key "stands", "rate_expenses"
   add_foreign_key "stands", "states"
+  add_foreign_key "states", "companies"
   add_foreign_key "travels", "carrier_lines"
   add_foreign_key "travels", "companies"
   add_foreign_key "travels", "drivers"

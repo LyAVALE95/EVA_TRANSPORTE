@@ -1,7 +1,5 @@
 <p id="notice"><%= notice %></p>
-<script type="text/javascript">
 
-    </script>
 <h1>Gastos de tárifa</h1>
 <button class="btn2 btn-danger btn-lg"
 onclick="window.location.href = '/rate_expenses/new'">
@@ -18,7 +16,6 @@ Nuevo
      <th> <button>#</button></th>
        <th>Nombre</th>
        <th>Descripción</th>
-       <th>Fecha</th>
        <th>Costo</th>
       <th class="Optionsth">Opciones</th>
     </tr>
@@ -30,7 +27,6 @@ Nuevo
         <td><%= index +1 %></td>
         <td><%= rate_expense.name %></td>
          <td><%= rate_expense.description %></td>
-        <td><%= rate_expense.active %></td>
         <td><%= rate_expense.cost %></td>
         <td >
         <div class="dropdown">
