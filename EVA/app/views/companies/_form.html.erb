@@ -10,9 +10,7 @@
       </ul>
     </div>
   <% end %>
-  <% if current_user.company_id? %>
-  <H1>Ya existe una compañia ligada a este usuario</H1>
-  <%else%>
+
 <div class="col-md-12 block formulary">
         <div class="col-md-12 block">
           <div class="form-group">
@@ -43,7 +41,7 @@
         </div>
 
       </div>
-      <%end%>
+      
   <div class="actions">
     <%= form.submit %>
   </div>

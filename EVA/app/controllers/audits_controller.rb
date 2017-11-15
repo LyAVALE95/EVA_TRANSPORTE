@@ -25,6 +25,9 @@ class AuditsController < ApplicationController
   # POST /audits.json
   def create
     @audit = Audit.new(audit_params)
+     if current_user.company_id
+         @audit.company_id = current_user.company_id
+       end
 
     respond_to do |format|
       if @audit.save

@@ -4,8 +4,7 @@ class StatesController < ApplicationController
   # GET /states
   # GET /states.json
   def index
-    @states = State.all
-  end
+    @states = State.where("company_id = ?", current_user.company_id)
 
   # GET /states/1
   # GET /states/1.json
@@ -25,6 +24,9 @@ class StatesController < ApplicationController
   # POST /states.json
   def create
     @state = State.new(state_params)
+     if current_user.company_id
+         @state.company_id = current_user.company_id
+       end
 
     respond_to do |format|
       if @state.save
@@ -42,7 +44,7 @@ class StatesController < ApplicationController
   def update
     respond_to do |format|
       if @state.update(state_params)
-        format.html { redirect_to @state, notice: 'State was successfully updated.' }
+        format.html { redirect_to @state, notice: 'El estado fue creado con éxito.' }
         format.json { render :show, status: :ok, location: @state }
       else
         format.html { render :edit }

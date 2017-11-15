@@ -1,25 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Stands</h1>
+<h1>Paradas</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/stands/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @stands.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
-      <th colspan="3"></th>
+       <th> <button>#</button></th>
+       <th>Name</th>
+       <th>Descripción</th>
+       <th>Tiempo máximo</th>
+       <th>Gasto extra</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @stands.each do |stand| %>
+    <% @stands.each_with_index do |stand, index| %>
       <tr>
-        <td><%= link_to 'Show', stand %></td>
-        <td><%= link_to 'Edit', edit_stand_path(stand) %></td>
-        <td><%= link_to 'Destroy', stand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <td> <%= index + 1 %></td>
+      <td><%= stand.name%></td>
+      <td><%=stand.description%></td>
+      <td><%= stand.timeMax%></td>
+      <td><%=stand.extSpent%></td>
+        <td><%= link_to 'Mostrar', stand %></td>
+        <td><%= link_to 'Editar', edit_stand_path(stand) %></td>
+        <td><%= link_to 'Eliminar', stand, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+    <% end %>
 <br>
 
-<%= link_to 'New Stand', new_stand_path %>
+

@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
-
+<div class="showtemp">
+  <% if @rate_expense.active  %>
+  <div id="activo">Activo</div>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+<p>
+  <strong>Nombre:</strong>
+  <%= @rate_expense.name %>
+</p>
+<p>
+  <strong>Descripción:</strong>
+  <%= @rate_expense.description %>
+</p>
+<p>
+  <strong>Costo:</strong>
+  <%= @rate_expense.cost %>
+</p>
+</div>
+<% if user_signed_in? %>
 <%= link_to 'Edit', edit_rate_expense_path(@rate_expense) %> |
 <%= link_to 'Back', rate_expenses_path %>
+<%end%>

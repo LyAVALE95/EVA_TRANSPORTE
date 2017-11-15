@@ -4,7 +4,8 @@ class TrucksController < ApplicationController
   # GET /trucks
   # GET /trucks.json
   def index
-    @trucks = Truck.all
+    #@trucks = Truck.all
+       @trucks = Truck.where("company_id = ?", current_user.company_id)
   end
 
   # GET /trucks/1
@@ -15,6 +16,7 @@ class TrucksController < ApplicationController
   # GET /trucks/new
   def new
     @truck = Truck.new
+
   end
 
   # GET /trucks/1/edit
@@ -25,7 +27,9 @@ class TrucksController < ApplicationController
   # POST /trucks.json
   def create
     @truck = Truck.new(truck_params)
-
+     if current_user.company_id
+         @truck.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @truck.save
         format.html { redirect_to @truck, notice: 'Truck was successfully created.' }

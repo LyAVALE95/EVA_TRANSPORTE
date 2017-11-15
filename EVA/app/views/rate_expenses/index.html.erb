@@ -1,25 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Rate Expenses</h1>
+<h1>Gastos de tárifa</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/rate_expenses/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @rate_expenses.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered Optional">
   <thead>
     <tr>
-      <th colspan="3"></th>
+     <th> <button>#</button></th>
+       <th>Nombre</th>
+       <th>Descripción</th>
+       <th>Costo</th>
+      <th class="Optionsth">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @rate_expenses.each do |rate_expense| %>
+    <% @rate_expenses.each_with_index do |rate_expense, index| %>
       <tr>
-        <td><%= link_to 'Show', rate_expense %></td>
-        <td><%= link_to 'Edit', edit_rate_expense_path(rate_expense) %></td>
-        <td><%= link_to 'Destroy', rate_expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= index +1 %></td>
+        <td><%= rate_expense.name %></td>
+         <td><%= rate_expense.description %></td>
+        <td><%= rate_expense.cost %></td>
+        <td >
+        <div class="dropdown">
+  <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle="dropdown">Opciones
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+    <li> <%= link_to 'Mostrar', rate_expense %></li>
+    <li><%= link_to 'Editar', edit_rate_expense_path(rate_expense) %></li>
+    <li><%= link_to 'Eliminar', rate_expense, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></li>
+  </ul>
+  </div>
+</td> 
+        
       </tr>
     <% end %>
   </tbody>
 </table>
-
+    <% end %>
 <br>
 
-<%= link_to 'New Rate Expense', new_rate_expense_path %>
+

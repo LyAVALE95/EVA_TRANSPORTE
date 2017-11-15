@@ -25,6 +25,9 @@ class LicensesController < ApplicationController
   # POST /licenses.json
   def create
     @license = License.new(license_params)
+      if current_user.company_id
+         @license.user_id = current_user.id
+       end
 
     respond_to do |format|
       if @license.save
@@ -69,6 +72,6 @@ class LicensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def license_params
-            params.require(:license).permit(:type, :cost,:validity)
+            params.require(:license).permit(:type_license, :cost,:validity)
     end
 end

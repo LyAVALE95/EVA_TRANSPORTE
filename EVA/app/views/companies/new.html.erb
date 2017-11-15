@@ -1,5 +1,7 @@
 <h1>New Company</h1>
-
+  <% if current_user.company_id? %>
+  <H1>Ya existe una compañia ligada a este usuario</H1>
+  <%else%>
 <%= render 'form', company: @company %>
-
+<%end%>
 <%= link_to 'Back', companies_path %>

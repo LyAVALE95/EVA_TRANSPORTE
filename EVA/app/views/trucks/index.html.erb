@@ -1,25 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Trucks</h1>
+<h1>Unidad (Camión) </h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/trucks/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @trucks.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
   <thead>
     <tr>
-      <th colspan="3"></th>
+    <th>#</th>
+    <th>Tipo</th>
+    <th>Modelo</th>
+     <th>Calidad</th>
+      <th>Distancia recorrida</th>
+       <th>Llantas</th>
+        <th>Gasolina</th>
+         <th>Capacidad de carga</th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @trucks.each do |truck| %>
+    <% @trucks.each_with_index do |truck, index| %>
       <tr>
-        <td><%= link_to 'Show', truck %></td>
-        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td> <%= index + 1 %></td>
+      <td><%= truck.enrollment %></td>
+      <td><%= truck.model %></td>
+      <td><%= truck.quality %></td>
+      <td><%= truck.mileage%></td>
+        <td><%= truck.wheels %></td>
+        <td><%= truck.gas %></td>
+        <td><%= truck.loadCapacity %></td>
+        <td><%= link_to 'Mostrar', truck %></td>
+        <td><%= link_to 'Editar', edit_truck_path(truck) %></td>
+        <td><%= link_to 'Eliminar', truck, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+    <% end %>
 <br>
 
-<%= link_to 'New Truck', new_truck_path %>

@@ -4,9 +4,8 @@ class StandsController < ApplicationController
   # GET /stands
   # GET /stands.json
   def index
-    @stands = Stand.all
-  end
-
+    @stands = Stand.where("company_id = ?", current_user.company_id)
+end
   # GET /stands/1
   # GET /stands/1.json
   def show
@@ -25,6 +24,9 @@ class StandsController < ApplicationController
   # POST /stands.json
   def create
     @stand = Stand.new(stand_params)
+     if current_user.company_id
+         @stand.company_id = current_user.company_id
+       end
 
     respond_to do |format|
       if @stand.save

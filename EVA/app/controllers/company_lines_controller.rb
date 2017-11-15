@@ -72,6 +72,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_line_params
-     params.require(:company_line).permit(:carrier_line_d, :company_id)
+     params.require(:company_line).permit(:carrier_line_id, :company_id)
     end
 end
