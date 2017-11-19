@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 <div class="showtemp">
   <% if @rate_expense.active  %>
@@ -18,7 +19,7 @@
   <%= @rate_expense.cost %>
 </p>
 </div>
-<% if user_signed_in? %>
+
 <%= link_to 'Edit', edit_rate_expense_path(@rate_expense) %> |
 <%= link_to 'Back', rate_expenses_path %>
 <%end%>

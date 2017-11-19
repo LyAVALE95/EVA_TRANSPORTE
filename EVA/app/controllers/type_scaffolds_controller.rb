@@ -4,7 +4,7 @@ class TypeScaffoldsController < ApplicationController
   # GET /type_scaffolds
   # GET /type_scaffolds.json
   def index
-    @type_scaffolds = TypeScaffold.all
+    @type_scaffolds = TypeScaffold.where("company_id = ?", current_user.company_id)
   end
 
   # GET /type_scaffolds/1
@@ -25,7 +25,9 @@ class TypeScaffoldsController < ApplicationController
   # POST /type_scaffolds.json
   def create
     @type_scaffold = TypeScaffold.new(type_scaffold_params)
-
+     if current_user.company_id
+         @type_scaffold.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @type_scaffold.save
         format.html { redirect_to @type_scaffold, notice: 'Type scaffold was successfully created.' }
