@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112232117) do
+ActiveRecord::Schema.define(version: 20171119190917) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -305,6 +305,7 @@ ActiveRecord::Schema.define(version: 20171112232117) do
     t.datetime "updated_at", null: false
     t.bigint "license_id"
     t.bigint "company_id"
+    t.boolean "active"
     t.index ["company_id"], name: "index_type_scaffolds_on_company_id"
     t.index ["license_id"], name: "index_type_scaffolds_on_license_id"
   end
