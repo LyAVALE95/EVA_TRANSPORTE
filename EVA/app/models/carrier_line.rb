@@ -1,6 +1,6 @@
 class CarrierLine < ApplicationRecord
 	validates :name, presence: true
-	validates :leagaName, presence: true
+	validates :legalName, presence: true
 	validates :tel, presence: true
 	validates :mail, presence: true
 	validates :comercialBusiness, presence: true
