@@ -1,4 +1,41 @@
+<% if user_signed_in? %>
+<%= link_to 'Editar', edit_type_scaffold_path(@type_scaffold) %> |
+<%= link_to 'Volver', type_scaffolds_path %>
 <p id="notice"><%= notice %></p>
+<div class="showtemp">
+  <% if @type_scaffold.active  %>
+  <div id="activo">Activo</div>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+<p>
+  <strong>Nombre:</strong>
+  <%= @type_scaffold.description %>
+</p>
+<p>
+  <strong>Peso:</strong>
+  <%= @type_scaffold.weigth %>
+</p>
+<p>
+  <strong>Tamaño:</strong>
+  <%= @type_scaffold.size %>
+</p>
+<p>
+  <strong>Categoría:</strong>
+  <%= @type_scaffold.category %>
+</p>
+<p>
+  <strong>Costo:</strong>
+  <%= @type_scaffold.cost %>
+</p>
+<p>
+  <strong>Horas extras:</strong>
+  <%= @type_scaffold.extraHours %>
+</p>
+<p>
+  <strong>Licencia:</strong>
+  <%= @type_scaffold.license_id %>
+</p>
+</div>
 
-<%= link_to 'Edit', edit_type_scaffold_path(@type_scaffold) %> |
-<%= link_to 'Back', type_scaffolds_path %>
+<%end%>

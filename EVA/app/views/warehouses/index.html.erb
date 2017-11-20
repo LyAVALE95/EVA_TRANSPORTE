@@ -1,11 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Warehouses</h1>
+<h1>Bodegas</h1>
+<button class="btn2 btn-danger btn-lg"
+onclick="window.location.href = '/warehouses/new'">
+Nuevo
+</button>
 
-<table>
+<br>
+<% if @warehouses.count == 0 %>
+  <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
+  <%else %>
+<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered Optional">
   <thead>
     <tr>
-      <th colspan="3"></th>
+    <th>#</th>
+     <th>Horario</th>
+      <th>Teléfono</th>
+       <th>Contacto</th>
+    <th class="Optionsth">Opciones</th>
     </tr>
   </thead>
 

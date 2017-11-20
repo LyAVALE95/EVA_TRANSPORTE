@@ -4,7 +4,7 @@ class TypeScaffoldsController < ApplicationController
   # GET /type_scaffolds
   # GET /type_scaffolds.json
   def index
-    @type_scaffolds = TypeScaffold.all
+    @type_scaffolds = TypeScaffold.where("company_id = ?", current_user.company_id)
   end
 
   # GET /type_scaffolds/1
@@ -25,7 +25,9 @@ class TypeScaffoldsController < ApplicationController
   # POST /type_scaffolds.json
   def create
     @type_scaffold = TypeScaffold.new(type_scaffold_params)
-
+     if current_user.company_id
+         @type_scaffold.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @type_scaffold.save
         format.html { redirect_to @type_scaffold, notice: 'Type scaffold was successfully created.' }
@@ -69,6 +71,6 @@ class TypeScaffoldsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def type_scaffold_params
-      params.require(:type_scaffold).permit(:description, :weigth, :size, :category, :cost, :extraHours,:license_id)
+      params.require(:type_scaffold).permit(:description, :weigth, :size, :category, :cost, :extraHours,:license_id,:active)
     end
 end
