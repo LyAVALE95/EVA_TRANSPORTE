@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119190917) do
+ActiveRecord::Schema.define(version: 20171119212324) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -363,6 +363,7 @@ ActiveRecord::Schema.define(version: 20171119190917) do
     t.bigint "location_id"
     t.bigint "company_id"
     t.bigint "clientcontact_id"
+    t.boolean "active"
     t.index ["clientcontact_id"], name: "index_warehouses_on_clientcontact_id"
     t.index ["company_id"], name: "index_warehouses_on_company_id"
     t.index ["location_id"], name: "index_warehouses_on_location_id"

@@ -4,7 +4,7 @@ class WarehousesController < ApplicationController
   # GET /warehouses
   # GET /warehouses.json
   def index
-    @warehouses = Warehouse.all
+    @warehouses = Warehouse.where("company_id = ?", current_user.company_id)
   end
 
   # GET /warehouses/1
@@ -25,6 +25,9 @@ class WarehousesController < ApplicationController
   # POST /warehouses.json
   def create
     @warehouse = Warehouse.new(warehouse_params)
+    if current_user.company_id
+         @warehouse.company_id = current_user.company_id
+       end
 
     respond_to do |format|
       if @warehouse.save
