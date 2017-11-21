@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   get 'companies' => 'companies#mycompany'
   get 'user' => 'user#index'
   get 'users' => 'users#myuser'
+  get 'travelsDriver/:id' => 'travels#travelsDriver'
   post'users_admin/new' => 'user#create'
   post 'users_admin/:id/edit' => 'user#update_none'
   #delete 'users' => 'users#myuser'

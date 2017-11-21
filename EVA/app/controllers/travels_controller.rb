@@ -7,6 +7,14 @@ class TravelsController < ApplicationController
     @travels = Travel.where("company_id = ?", current_user.company_id)
   end
 
+  def travelsDriver
+    @travels = Travel.where("company_id = ? AND driver_id = ?", current_user.company_id ,params[:id])
+    
+    respond_to do |format|
+      format.json { render json: @travels }
+    end
+  end
+
   # GET /travels/1
   # GET /travels/1.json
   def show
@@ -20,6 +28,7 @@ class TravelsController < ApplicationController
   # GET /travels/1/edit
   def edit
   end
+  
 
   # POST /travels
   # POST /travels.json
