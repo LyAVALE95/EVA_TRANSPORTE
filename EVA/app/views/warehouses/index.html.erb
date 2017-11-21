@@ -24,9 +24,21 @@ Nuevo
   <tbody>
     <% @warehouses.each do |warehouse| %>
       <tr>
-        <td><%= link_to 'Show', warehouse %></td>
-        <td><%= link_to 'Edit', edit_warehouse_path(warehouse) %></td>
-        <td><%= link_to 'Destroy', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= index +1 %></td>
+       <td><%= warehouse.scheduleStart%>-<%= warehouse.scheduleEnd%></td>
+       <td><%= warehouse.tel%></td>
+         <td><%= warehouse.clientcontact_id%></td>
+      <td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', warehouse %></li>
+        <li><%= link_to 'Editar', edit_warehouse_path(warehouse) %></li>
+        <li><%= link_to 'Eliminar', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+      </div>
+    </td> 
       </tr>
     <% end %>
   </tbody>

@@ -5,6 +5,7 @@ class AuditsController < ApplicationController
   # GET /audits.json
   def index
     @audits = Audit.where("company_id = ?", current_user.company_id)
+    @audit = Audit.new
   end
 
   # GET /audits/1
@@ -72,6 +73,6 @@ class AuditsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audit_params
-      params.require(:audit).permit(:results, :description)
+      params.require(:audit).permit(:results, :description,:active)
     end
 end

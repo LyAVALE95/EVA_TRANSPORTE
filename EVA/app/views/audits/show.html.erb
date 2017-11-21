@@ -1,4 +1,13 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
+<div class="showtemp">
+<% if @audit.active  %>
+  <div id="activo">Activo</div>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
 
+</div>
 <%= link_to 'Edit', edit_audit_path(@audit) %> |
 <%= link_to 'Back', audits_path %>
+<%end%>
