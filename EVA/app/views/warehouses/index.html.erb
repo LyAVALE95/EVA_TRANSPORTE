@@ -10,7 +10,7 @@ Nuevo
 <% if @warehouses.count == 0 %>
   <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
   <%else %>
-<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered Optional">
+<table id="Datatable" data-src="warehouses" class="table scroll table-striped table-bordered Optional">
   <thead>
     <tr>
     <th>#</th>
@@ -22,7 +22,7 @@ Nuevo
   </thead>
 
   <tbody>
-    <% @warehouses.each do |warehouse| %>
+    <% @warehouses.each_with_index do |warehouse,index| %>
       <tr>
       <td><%= index +1 %></td>
        <td><%= warehouse.scheduleStart%>-<%= warehouse.scheduleEnd%></td>
