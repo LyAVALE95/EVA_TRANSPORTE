@@ -12,7 +12,8 @@ function cargarDataTables() { //data-src
       var auxtable = this;
       $(this).on('click', 'tbody tr', function() {
         ctrl = $(this).closest('table').attr('data-src').trim();
-        selID = $(this).closest('tr').find('td').first().html().trim();
+        //selID = $(this).closest('tr').find('td').first().html().trim();
+        selID = $(this).closest('tr').attr('selID').trim();
         console.log("click " + selID);
         $('.selectedRow').removeClass('selectedRow');
         
@@ -73,7 +74,7 @@ function cargarDataTables() { //data-src
           $(this).parent('table').addClass('scroll')
         }
         if(selID){
-          $('#FirstContainer').attr('class', 'col-md-7 block');
+          $('#FirstContainer').attr('class', 'col-md-8 block');
           $('#SecondContainer').show('slow', function() {});
         }
       });
@@ -92,26 +93,7 @@ function cargarDataTables() { //data-src
       });
     }
 
-    if(this.hasAttribute('data-reminders')){
-      $(this).on('click', 'tbody tr', function() {
-        selID = $(this).closest('tr').find('td').first().html();
-        //Get Reminders
-        var data = jsonHelper.get(`/accountReminders/${selID}.json`)
-        $("#dbtaaccountRecordatorios").find("tbody").first().html("");
-        for (var i = 0; i < data.length; i++) {
-
-         $("#dbtaaccountRecordatorios").find("tbody").append("<tr><td>"+ data[i].id  + "</td><td>" + data[i].nrdate + "</td><td>" + data[i].description + "</td></tr>")
-        }
-
-        //get contects
-        data = jsonHelper.get(`/accounts/${selID}.json`).contacts
-        $("#dbtContactos").find("tbody").first().html("");
-        for (var i = 0; i < data.length; i++) {
-          console.log(data);
-          $("#dbtContactos").append("<tr><td>"+ data[i].id+"</td><td>" +data[i].name + "</td><td>" + data[i].title + "</td><td>"+ data[i].email +"</td><td>"+data[i].phone_number + "</td></tr>")
-        }
-      });
-    }
+    
 
     /*if(this.hasAttribute('data-reminders')){
       $(this).on('click', 'tbody tr', function() {

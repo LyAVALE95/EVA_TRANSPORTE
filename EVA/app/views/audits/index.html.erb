@@ -25,8 +25,8 @@ Nuevo
 
   <tbody>
     <% @audits.each_with_index  do |audit, index| %>
-      <tr data-id="<%= audit.id %>">
-         <td> <%= index + 1 %></td>
+      <tr selID = "<%= audit.id %>">
+         <td> <%= index + 1  %></td>
         <td><%= audit.results %></td>
         <td><%= audit.description %></td>
          <td><%= audit.created_at.to_s %> </td>
@@ -55,18 +55,17 @@ Nuevo
 </div>
 </div>
 
-<div id="SecondContainer" class="col-md-1 block">
+<div id="SecondContainer" class="col-md-3 block">
   <div class="tab-content">
 
     <div id="sectionA" class="tab-pane fade in active">
       <span id="RowDetails">
-        <h3>XYZ</h3>
-     
       </span>
     </div>
     <div id="sectionB" class="tab-pane fade">
       <%= render 'form', audit: @audit %>&nbsp;
-     
+      
     </div>
+
   </div>
 </div>
