@@ -1,6 +1,17 @@
 $(document).ready(function() {
   getPageName()
+     $('#SecondContainer').hide();
+   $('#sectionC').hide();
+
+$('#btnCloseDetails').on('click', function() {
+ $('#SecondContainer').hide();
+   $('#sectionC').hide();
+   $('#FirstContainer').attr('class', 'col-md-12 block');
 });
+
+
+});
+
 
 var selID = false;
 function cargarDataTables() { //data-src
@@ -76,6 +87,7 @@ function cargarDataTables() { //data-src
         if(selID){
           $('#FirstContainer').attr('class', 'col-md-8 block');
           $('#SecondContainer').show('slow', function() {});
+           $('#sectionC').show();
         }
       });
       

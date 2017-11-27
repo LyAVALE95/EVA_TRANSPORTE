@@ -45,6 +45,19 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+    # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
+
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials:  {
+    bucket:  ENV['evatr'],
+    access_key_id:  ENV['AKIAJDW3P4NIK4LH4HLQ'],
+    secret_access_key:  ENV['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'],
+    s3_region: ENV['us-west-2']
+  }
+}
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
