@@ -49,14 +49,16 @@
         <div class="overlay"></div>
     
   <!-- Sidebar -->
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.company_id %>
     
         <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
         <div class="col-lg-2 col-md-2 col-sm-2">
             <ul class="nav sidebar-nav" id="side-list">
                 <li class="sidebar-brand">
                     <a href="#">
-                      <%= current_user.name %>
+                    <% if current_user.company_id? %>
+                        <h3 class="sidebar-brand"><%= @company.name %></h3>
+                      <% end %>
                     </a>
                 </li>
                 <li>
@@ -85,6 +87,9 @@
                 </li>
                 <li>
                     <a href="#">Contactos</a>
+                </li>
+                 <li>
+                   <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>SALIR</b></a>
                 </li>
                 
             </ul>

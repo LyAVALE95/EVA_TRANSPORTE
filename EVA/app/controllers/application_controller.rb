@@ -5,9 +5,12 @@ class ApplicationController < ActionController::Base
   acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
   protected
+def index
 
+end
 def set_current_user
       User.current = current_user
+      @company = Company.where("id = ?",current_user.company_id).first
     end
     def configure_permitted_parameters
     #added_attrs = [:name,:last_name, :email, :password, :password_confirmation, :remember_me]
