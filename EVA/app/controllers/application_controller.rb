@@ -4,13 +4,17 @@ class ApplicationController < ActionController::Base
    protect_from_forgery with: :null_session
   acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
+before_action :set_admin
+def set_admin
+   @mycompany = Company.where("id = ?",current_user.company_id).first
+end
   protected
 def index
 
 end
 def set_current_user
       User.current = current_user
-      @company = Company.where("id = ?",current_user.company_id).first
+     mycompany = Company.where("id = ?",current_user.company_id).first                       
     end
     def configure_permitted_parameters
     #added_attrs = [:name,:last_name, :email, :password, :password_confirmation, :remember_me]

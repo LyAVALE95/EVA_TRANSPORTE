@@ -9,6 +9,8 @@ $('#btnCloseDetails').on('click', function() {
    $('#FirstContainer').attr('class', 'col-md-12 block');
 });
 
+$('a').click( function(e) {location.reload(true); } );
+
 
 });
 

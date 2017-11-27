@@ -15,3 +15,5 @@ $("#menu-toggle").click(function(e) {
   $( function() {
     $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
   } );
+
+  $('a').click( function(e) {getPageName(); cargarDataTables();  } );

@@ -25,6 +25,12 @@ $("#sidebar-wrapper").animate({left: '0px'});
 
       <h1 style="color: #1FAB89;" >EVA TRANSPORTE</h1>
     </div>
+    <ul class="nav navbar-nav navbar-right " id="buttones">
+    <li> <a>Usuario: <%= current_user.name %></a> </li>
+    <li> <a>Compañia: <%= @mycompany.name %></a></li>
+        <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>Salir</b></a>
+      </li>
+    </ul>
 <!--
     <ul class="nav navbar-nav navbar-right " id="buttones">
      <li><a href="/travels"> Viajes</a></li>
