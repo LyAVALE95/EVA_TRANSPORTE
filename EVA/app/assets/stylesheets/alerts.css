@@ -20,3 +20,25 @@
 	margin-bottom: 30px;
 	border-bottom: thick solid #1F4132;
 }
+#activol{ 
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #C4F1DD;
+    font-weight: bold;
+    font-size: 20px;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #1CA039;*/
+}
+#inactivol{ 
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #E9B7B2;
+    font-weight: bold;
+    font-size: 20px;
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #AF1919;*/
+}

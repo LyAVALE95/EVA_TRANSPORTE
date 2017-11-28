@@ -15,7 +15,7 @@ Nuevo
 <table id="Datatable" data-src="audits" class="table display scroll table-striped table-bordered Optional" data-toggle="table" data-detail-view="true" data-detail-formatter="detailFormatter">
   <thead>
     <tr>
-       <th> <button>#</button></th>
+       <th>ID/Activo</th>
        <th>Resultados</th>
        <th>Descripción</th>
        <th>Fecha</th>
@@ -26,7 +26,12 @@ Nuevo
   <tbody>
     <% @audits.each_with_index  do |audit, index| %>
       <tr selID = "<%= audit.id %>">
-         <td> <%= index + 1  %></td>
+      <% if audit.active  %>
+  <td id="activol">  <%= index + 1  %></td>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
+        
         <td><%= audit.results %></td>
         <td><%= audit.description %></td>
          <td><%= audit.created_at.to_s %> </td>

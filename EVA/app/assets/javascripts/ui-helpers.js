@@ -8,12 +8,11 @@ $('#btnCloseDetails').on('click', function() {
    $('#sectionC').hide();
    $('#FirstContainer').attr('class', 'col-md-12 block');
 });
-
 $('a').click( function(e) {location.reload(true); } );
-
-
 });
-
+function PaintRedRow(r){
+  $(r).css("background-color", "#000000");
+}
 
 var selID = false;
 function cargarDataTables() { //data-src
