@@ -67,6 +67,16 @@ class UserController < ApplicationController
           else
           end
         end
+        if @user.rol == 'Cliente'
+          @cliente = Customer.new
+          @cliente.names = @user.name
+          @cliente.lastnames = @user.lastName
+            @cliente.company_id = @user.company_id
+          if @cliente.save
+          else
+          end
+        end
+
         #@user.company_id = current_user.company_id
         format.html { redirect_to users_admin_index_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
