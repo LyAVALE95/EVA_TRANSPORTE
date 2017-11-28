@@ -6,7 +6,11 @@ class ApplicationController < ActionController::Base
 
 before_action :set_admin
 def set_admin
+  if current_user
    @mycompany = Company.where("id = ?",current_user.company_id).first
+ else
+    @mycompany = ""
+ end
 end
   protected
 def index

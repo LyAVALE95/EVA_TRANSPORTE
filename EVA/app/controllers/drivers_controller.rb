@@ -5,7 +5,7 @@ class DriversController < ApplicationController
   # GET /drivers.json
   def index
     #@drivers = Driver.all
-    @drivers = Driver.where("user_id = ?", current_user.id)
+    @drivers = Driver.where("company_id = ?", current_user.company_id)
   end
 
   # GET /drivers/1
@@ -27,7 +27,7 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.new(driver_params)
        if current_user.company_id
-         @driver.user_id = current_user.id
+         @driver.company_id = current_user.company_id
        end
     respond_to do |format|
       if @driver.save

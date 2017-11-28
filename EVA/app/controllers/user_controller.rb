@@ -58,6 +58,15 @@ class UserController < ApplicationController
 =end    
     respond_to do |format|
       if @user.save
+        if @user.rol == 'Transportista'
+          @driver = Driver.new
+          @driver.names = @user.name
+          @driver.lastnames = @user.lastName
+            @driver.company_id = @user.company_id
+          if @driver.save
+          else
+          end
+        end
         #@user.company_id = current_user.company_id
         format.html { redirect_to users_admin_index_url, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
