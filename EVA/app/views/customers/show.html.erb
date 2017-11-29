@@ -1,4 +1,52 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Editar', edit_customer_path(@customer) %> |
+<%= link_to 'Volver', customers_path %>
+<p id="notice"><%= notice %></p>
+<div class="showtemp">
+<% if @customer.active  %>
+ 
+    <% if @customer.tel != '' && @customer.address && @customer.country != '' && @customer.schedule != '' %>
+  <div id="activo">Activo</div>
+  
+  <%else%>
+   <div id="activo">Activo</div>
+    <div id="activop">Registro de cliente incompleto</div>
+  <%end%>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+  <p>
+  <strong>Nombre:</strong>
+  <%= @customer.names %> <%= @customer.lastnames %>
+</p>
+ <p>
+  <strong>Dirección:</strong>
+  <%= @customer.address %>
+</p>
+<p>
+  <strong>Dirección (Localidad):</strong>
+  <%= @customer.city %> , <%= @customer.state %>,  <%= @customer.country %>.
+</p>
+ <p>
+  <strong>Código postal:</strong>
+  <%= @customer.cp %>
+</p>
+ <p>
+  <strong>Notas:</strong>
+  <%= @customer.notes %>
+</p>
+<p>
+  <strong>Contacto:</strong>
+  <strong>Tel:</strong><%= @customer.tel %> / <strong>Móvil:</strong><%= @customer.movil %>
+</p>
+ <p>
+  <strong>Horario:</strong>
+  <%= @customer.schedule %>
+</p>
+
+</div>
+
+
+
+<%end%>

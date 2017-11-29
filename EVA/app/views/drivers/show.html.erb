@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-<%= link_to 'Send Thanks', new_truck_path(@truck,:driver_id => "1", :company_id => "1", :model => "00000"  ) %>
 <%= link_to 'Editar', edit_driver_path(@driver) %> |
 <%= link_to 'Volver', drivers_path %>
 <p id="notice"><%= notice %></p>

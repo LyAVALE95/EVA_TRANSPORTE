@@ -63,6 +63,7 @@ class UserController < ApplicationController
           @driver.names = @user.name
           @driver.lastnames = @user.lastName
             @driver.company_id = @user.company_id
+             @driver.user_id = @user.id
           if @driver.save
           else
           end
@@ -72,6 +73,7 @@ class UserController < ApplicationController
           @cliente.names = @user.name
           @cliente.lastnames = @user.lastName
             @cliente.company_id = @user.company_id
+             @cliente.user_id = @user.id
           if @cliente.save
           else
           end
