@@ -17,3 +17,9 @@ $("#menu-toggle").click(function(e) {
   } );
 
  
+$(document).ready(function(){
+	$(".formulario").hide();
+    $(".btntoggleform").click(function(){
+        $(".formulario").toggle();
+    });
+});
