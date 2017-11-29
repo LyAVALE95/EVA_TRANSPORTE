@@ -1,4 +1,40 @@
-<p id="notice"><%= notice %></p>
-
+<% if user_signed_in? %>
 <%= link_to 'Edit', edit_driver_path(@driver) %> |
 <%= link_to 'Back', drivers_path %>
+<p id="notice"><%= notice %></p>
+<div class="showtemp">
+<% if @driver.active  %>
+ 
+  <% if @driver.rfc != '' && @driver.hiredDate && @driver.code != '' && @driver.department != ''   %>
+  <div id="activo">Activo</div>
+  
+  <%else%>
+   <div id="activo">Activo</div>
+    <div id="activop">Registro de conductor incompleto</div>
+  <%end%>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+  <p>
+  <strong>Código:</strong>
+  <%= @driver.code %>
+	</p>
+ <p>
+  <strong>Departamento:</strong>
+  <%= @driver.department %>
+	</p>
+	 <p>
+  <strong>Conductor:</strong>
+  <%= @driver.names %>  <%= @driver.lastnames %>
+	</p>
+ <p>
+  <strong>RFC:</strong>
+  <b><%= @driver.rfc %></b>
+	</p>
+	 <p>
+  <strong>Fecha de ingreso:</strong>
+  <%= @driver.hiredDate %>
+	</p>
+</div>
+
+<%end%>

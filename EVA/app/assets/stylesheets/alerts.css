@@ -10,6 +10,17 @@
 	margin-bottom: 30px;
 	border-bottom: thick solid #1F4132;
 }
+#activop{
+	color: #14120D;
+	text-align: center;
+	background-color: #F1E896;
+	font-weight: bold;
+	font-size: 25px;	
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	border-bottom: thick solid #EBC838;
+}
 #inactivo{
 	color: #AF1919;
 	text-align: center;
