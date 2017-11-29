@@ -15,38 +15,44 @@
           <div class="form-group">
             <%= form.label :code,"Código", class: "control-label  col-sm-1" %>
               <div class="col-sm-11 ">
-                <%= form.text_field :code, id: :audit_results, class: "form-control border" %>
+                <%= form.text_field :code, id: :driver_code, class: "form-control border" %>
               </div>
           </div>
           <div class="form-group">
             <%= form.label :department ,"Departamento", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :department, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :department, id: :driver_dep, class: "form-control border" %>
               </div>
           </div>
          
          <div class="form-group">
             <%= form.label :names ,"Nombres", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :names, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :names, id: :driver_names, class: "form-control border" %>
               </div>
           </div>
               <div class="form-group">
             <%= form.label :lastnames ,"Apellidos", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :lastnames, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :lastnames, id: :driver_lastNames, class: "form-control border" %>
               </div>
           </div>
            <div class="form-group">
             <%= form.label :rfc ,"RFC", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :rfc, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :rfc, id: :driver_rfc, class: "form-control border" %>
               </div>
           </div>
            <div class="form-group">
             <%= form.label :hiredDate ,"Fecha de contratación", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :hiredDate, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :hiredDate, id: :driver_date, class: "form-control border datepicker" %>
+              </div>
+          </div>
+           <div class="form-group">
+            <%= form.label :active ,"Activo", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.check_box :active, id: :driver_active, class: "form-control border" %>
               </div>
           </div>
            

@@ -1,3 +1,4 @@
+/*ALERTAS DE ESTADO-COLORES POR CADA ENTIDAD GRABADA*/
 #activo{
 	color: #1CA039;
 	text-align: center;
@@ -20,12 +21,23 @@
 	margin-bottom: 30px;
 	border-bottom: thick solid #1F4132;
 }
-#activol{ 
+#activol{ /*Todo completo */
     /* color: #1CA039; */
     text-align: center;
     background-color: #C4F1DD;
     font-weight: bold;
-    font-size: 20px;
+
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #1CA039;*/
+}
+#activolp{ /*Tiene campos pendientes*/
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #F1E896;
+    font-weight: bold;
+
     /* padding-top: 20px; */
     /* padding-bottom: 20px; */
     /* margin-bottom: 30px; */
@@ -36,7 +48,7 @@
     text-align: center;
     background-color: #E9B7B2;
     font-weight: bold;
-    font-size: 20px;
+
     /* padding-top: 20px; */
     /* padding-bottom: 20px; */
     /* margin-bottom: 30px; */

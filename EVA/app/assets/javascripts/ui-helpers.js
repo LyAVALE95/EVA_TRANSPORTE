@@ -8,7 +8,15 @@ $('#btnCloseDetails').on('click', function() {
    $('#sectionC').hide();
    $('#FirstContainer').attr('class', 'col-md-12 block');
 });
-$('a').click( function(e) {location.reload(true); } );
+$('.redo').click( function() { 
+  //alert("redo");
+  //location.reload(true);
+});
+ $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
+$('a').click( function(e) {
+
+  location.reload(true);
+   } );
 });
 function PaintRedRow(r){
   $(r).css("background-color", "#000000");
