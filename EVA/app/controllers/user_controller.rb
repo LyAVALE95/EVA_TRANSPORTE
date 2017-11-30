@@ -58,7 +58,7 @@ class UserController < ApplicationController
 =end    
     respond_to do |format|
       if @user.save
-        if @user.rol == 'Transportista'
+        if @user.rol == 'Conductor'
           @driver = Driver.new
           @driver.names = @user.name
           @driver.lastnames = @user.lastName

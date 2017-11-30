@@ -23,3 +23,9 @@ $(document).ready(function(){
         $(".formulario").toggle();
     });
 });
+$(document).ready(function(){
+  $(".formulario2").hide();
+    $(".btntoggleform2").click(function(){
+        $(".formulario2").toggle();
+    });
+});

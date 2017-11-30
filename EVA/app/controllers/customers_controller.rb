@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
     @clientcontact = Clientcontact.new(customer_id: params[:id] )
+    @warehouse = Warehouse.new(customer_id: params[:id] )
   end
 
   # GET /customers/new
