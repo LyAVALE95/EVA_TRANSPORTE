@@ -13,7 +13,7 @@ class DriversController < ApplicationController
   def show
     @driver = Driver.where("company_id = ? and id = ?", 
       current_user.company_id, params[:id]).first
-      @truck = Truck.new(driver_id: '3', model: '555' )
+      @truck = Truck.new(driver_id: params[:id] )
     #@truck = Truck.new(driver_id: '3',company_id: current_user.company_id )
     #@truck.driver_id = @mydriver.id
     #@truck.company_id = current_user.company_id

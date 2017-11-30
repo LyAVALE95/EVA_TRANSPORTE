@@ -46,9 +46,74 @@
 </p>
 
 </div>
+<div class="formulario col-md-12">
+<%= render 'clientcontacts/form', clientcontact: @clientcontact %>
+</div>
+<div class="showtemp col-md-12">
+<div class="">
+  <button class="btn2 btn-danger btn-lg btntoggleform">
++Nuevo contacto
+</button>
+<div class="padbutton">
+  <button class="btn2 btn-danger btn-lg btntoggleform">
++Nueva bodega
+</button>
+</div>
+</div>
+<div class="showtemp col-md-6">
 <div id="activop" class="">Contactos de cliente</div>
+<table id="Datatable" class="table scroll table-striped table-bordered ">
+  <thead>
+    <tr>
+     <th>ID/Activo</th>
+       <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Telefóno</th>
+          <th>Correo electrónico</th>
+      <th class="Optionsth">Opciones</th>
+    </tr>
+  </thead>
+        
+  <tbody>
+    <% @customer.clientcontacts.each_with_index do |clientcontact,index| %>
+      <tr selID = "<%= clientcontact.id %>">
+      <% if clientcontact.active  %>
 
-<div id="activop" class="">Bodega</div>
+    <% if clientcontact.tel != '' && clientcontact.mail && clientcontact.movil != '' %>
+          <td id="activol">  <%= index + 1  %></td>
+        <%else%>
+          <td id="activolp">  <%= index + 1  %></td>
+    <%end %>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
+        
+       
+      <td><%= clientcontact.names%></td>
+          <td><%= clientcontact.lastnames%></td>
+              <td><%= clientcontact.tel%></td>
+                  <td><%= clientcontact.mail%></td>
+         <td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', clientcontact %></li>
+        <li><%= link_to 'Editar', edit_clientcontact_path(clientcontact) %></li>
+        <li><%= link_to 'Eliminar', clientcontact, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></li>
+    </ul>
+      </div>
+    </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>
+
+<div id="activop" class="col-md-6">Bodega</div>
 
 
 <%end%>
