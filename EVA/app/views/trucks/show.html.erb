@@ -1,4 +1,61 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
+<div class="showtemp">
+<% if @truck.active  %>
+<div id="activo">Activo</div>
+  <%else%>
+  <div id="inactivo">Inactivo</div>
+  <%end%>
+  <p>
+  <strong>Conductor:</strong>
+  <%= @truck.driver_id %>
+	</p>
+	<p>
+  <strong>Tipo:</strong>
+  <%= @truck.enrollment %>
+	</p>
+	<p>
+  <strong>Modelo:</strong>
+  <%= @truck.model %>
+	</p>
+	<p>
+  <strong>Calidad:</strong>
+  <%= @truck.quality %>
+	</p>
+	<p>
+  <strong>Modelo:</strong>
+  <%= @truck.model %>
+	</p>
+	<p>
+  <strong>Distancia Recorrida:</strong>
+  <%= @truck.mileage %>
+	</p>
+	<p>
+  <strong>Llantas (número):</strong>
+  <%= @truck.wheels %>
+	</p>
+	<p>
+  <strong>Gasolina (cantidad de consumo):</strong>
+  <%= @truck.gas %>
+	</p>
+	<p>
+  <strong>Capacidad de carga:</strong>
+  <%= @truck.loadCapacity %>
+	</p>
+	<p>
+  <strong>Año:</strong>
+  <%= @truck.year %>
+	</p>
+	<p>
+  <strong>Productor:</strong>
+  <%= @truck.producer %>
+	</p>
+	<p>
+  <strong>Tamaño de la caja:</strong>
+  <%= @truck.BoxSize %>
+	</p>
 
+</div>
 <%= link_to 'Edit', edit_truck_path(@truck) %> |
 <%= link_to 'Back', trucks_path %>
+<%end %>

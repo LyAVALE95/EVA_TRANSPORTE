@@ -13,23 +13,61 @@
   <div class="col-md-12 block formulary">
         <div class="col-md-12 block">
           <div class="form-group">
-            <%= form.label :name,"Nombre", class: "control-label  col-sm-1" %>
+            <%= form.label :names,"Nombre", class: "control-label  col-sm-1" %>
               <div class="col-sm-11 ">
-                <%= form.text_field :name, id: :audit_results, class: "form-control border" %>
+                <%= form.text_field :names, id: :clientcontact_names, class: "form-control border" %>
               </div>
           </div>
+
           <div class="form-group">
-            <%= form.label :legalName ,"Razón Social", class: "control-label col-sm-1" %>
+            <%= form.label :lastnames ,"Apellidos", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :legalName, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :lastnames, id: :clientcontact_lastnames, class: "form-control border" %>
               </div>
           </div>
            <div class="form-group">
             <%= form.label :tel ,"Teléfono", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :tel, id: :audit_description, class: "form-control border" %>
+                <%= form.text_field :tel, id: :clientcontact_tel, class: "form-control border" %>
               </div>
           </div>
+               <div class="form-group">
+            <%= form.label :movil ,"Móvil", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :movil, id: :clientcontact_movil, class: "form-control border" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :mail ,"Correo Electrónico", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :mail, id: :clientcontact_mail, class: "form-control border" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :hiredate ,"Fecha de contratación ", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :hiredate, id: :clientcontact_comercial, class: "form-control border datepicker" %>
+              </div>
+          </div>
+           <div class="form-group">
+            <%= form.label :note ,"Nota", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :note, id: :comercialBusiness_code, class: "form-control border" %>
+              </div>
+          </div>
+                 <div class="form-group">
+            <%= form.label :customer_id ,"Cliente", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.text_field :customer_id, id: :comercialBusiness_code, class: "form-control border" %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :active ,"Activo", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= form.check_box :active, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+     
      
            
         </div>

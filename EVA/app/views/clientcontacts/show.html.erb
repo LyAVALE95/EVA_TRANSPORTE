@@ -1,4 +1,40 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_clientcontact_path(@clientcontact) %> |
 <%= link_to 'Back', clientcontacts_path %>
+<div class="showtemp">
+<% if @clientcontact.active  %>
+ 
+       <% if @clientcontact.tel != '' && @clientcontact.mail && @clientcontact.movil != '' %>
+  <div id="activo">Activo</div>
+  
+  <%else%>
+   <div id="activo">Activo</div>
+    <div id="activop">Registro del contacto de cliente incompleto</div>
+  <%end%>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+  <p>
+  <strong>Nombre:</strong>
+  <%= @clientcontact.names %>  <%= @clientcontact.lastnames %>
+</p>
+<p>
+  <strong>Nota:</strong>
+  <%= @clientcontact.note %>  
+</p>
+<p>
+  <strong>Teléfono:</strong>
+  <%= @clientcontact.tel %>  
+</p>
+<p>
+  <strong>Teléfono móvil:</strong>
+  <%= @clientcontact.movil %>  
+</p>
+<p>
+  <strong>Fecha de contratación:</strong>
+  <%= @clientcontact.hiredate %>  
+</p>
+ </div>
+<%end%>

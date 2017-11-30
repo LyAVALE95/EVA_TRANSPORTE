@@ -5,7 +5,7 @@ $("#sidebar-wrapper").animate({left: '0px'});
 
     $("#sidebar-wrapper").hover(function(){
        // $(this).css("background-color", "yellow");
-       $("#sidebar-wrapper").animate({left: '70px'});
+       $("#sidebar-wrapper").animate({left: '90px'});
         $(".mainblock").animate({left: '80px'});
     },
     function(){
@@ -25,7 +25,13 @@ $("#sidebar-wrapper").animate({left: '0px'});
 
       <h1 style="color: #1FAB89;" >EVA TRANSPORTE</h1>
     </div>
-
+    <ul class="nav navbar-nav navbar-right " id="buttones">
+    <li> <a>Usuario: <%= current_user.name %></a> </li>
+    <li> <a>Compañia: <%= @mycompany.name %></a></li>
+        <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>Salir</b></a>
+      </li>
+    </ul>
+<!--
     <ul class="nav navbar-nav navbar-right " id="buttones">
      <li><a href="/travels"> Viajes</a></li>
     <li><a href="/locations"> Localizaciones</a></li>
@@ -37,7 +43,7 @@ $("#sidebar-wrapper").animate({left: '0px'});
           <li><a href="/warehouses"> Bodegas</a></li>
         <a type="button" rel="nofollow" data-method="delete" href="/users/sign_out"><b>LOGOUT</b></a>
       </li>
-    </ul>
+    </ul>-->
   </div>
 </nav>
 

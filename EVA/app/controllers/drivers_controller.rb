@@ -5,12 +5,25 @@ class DriversController < ApplicationController
   # GET /drivers.json
   def index
     #@drivers = Driver.all
-    @drivers = Driver.where("user_id = ?", current_user.id)
+    @drivers = Driver.where("company_id = ?", current_user.company_id)
   end
 
   # GET /drivers/1
   # GET /drivers/1.json
   def show
+    @driver = Driver.where("company_id = ? and id = ?", 
+      current_user.company_id, params[:id]).first
+      @truck = Truck.new(driver_id: params[:id] )
+    #@truck = Truck.new(driver_id: '3',company_id: current_user.company_id )
+    #@truck.driver_id = @mydriver.id
+    #@truck.company_id = current_user.company_id
+    #@truck.save
+    respond_to do |format|
+      format.html
+      format.json { render json: @driver.to_json(:include => {:trucks => { :only => [
+        :driver_id => "3"
+        ] } } )  }
+    end
   end
 
   # GET /drivers/new
@@ -27,7 +40,7 @@ class DriversController < ApplicationController
   def create
     @driver = Driver.new(driver_params)
        if current_user.company_id
-         @driver.user_id = current_user.id
+         @driver.company_id = current_user.company_id
        end
     respond_to do |format|
       if @driver.save
@@ -72,6 +85,6 @@ class DriversController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def driver_params
-    params.require(:driver).permit(:code, :department,:names,:lastnames, :rfc,:hiredDate,:user_id )
+    params.require(:driver).permit(:code, :department,:names,:lastnames, :rfc,:hiredDate,:user_id,:active )
     end
 end

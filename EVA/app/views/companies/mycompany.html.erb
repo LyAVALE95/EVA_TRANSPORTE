@@ -1,12 +1,15 @@
-
+<div class="col-md-12 block">
+  <div class="col-md-12 block">
 
 <% if current_user.company_id? %>
  
 
 
 <h1><%= @company.name %></h1>
-    <td><%= link_to 'Editar compañia', edit_company_path(@company) %></td>  
-
+    <td><%= link_to 'Editar compañia', edit_company_path(@company) %></td> 
+      <input id="pac-inputmap" class="controlsmap" type="text"
+        placeholder="Enter a location">
+ <div id="mapitap"></div>
 <%else%>
 <h1>Mi compañia</h1>
 <img src="/assets/Bienvenido.png" alt="Mountain View" class="sincompania">
@@ -17,3 +20,5 @@
 <b>Crear mi compañia</b>
 </button>
 <%end%>
+</div>
+</div>
