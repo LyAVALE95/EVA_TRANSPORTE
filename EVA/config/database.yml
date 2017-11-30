@@ -13,8 +13,8 @@ development:
  adapter: mysql2
  database: EVA
  username: root
- password: ""
- host: ec2-18-217-98-91.us-east-2.compute.amazonaws.com
+ password: "1234"
+ host: 18.217.98.91
 
 
 # Warning: The database defined as "test" will be erased and
