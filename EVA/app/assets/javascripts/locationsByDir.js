@@ -87,9 +87,28 @@
           if ($("#location_address")){
             $("#location_address").val(place.formatted_address);
           }
-            if ($("#location_street")){
+            if ($("#location_street") && calle[0]){
             $("#location_street").val(calle[0].long_name);
           }
+             if ($("#location_district") && colonia[0]  ){
+            $("#location_district").val(colonia[0].long_name);
+          }
+           if ($("#location_intnum") && numcalle[0]){
+            $("#location_intnum").val(numcalle[0].long_name);
+          }
+           if ($("#location_zipcode")&& cp[0]){
+            $("#location_zipcode").val(cp[0].long_name);
+          }
+          if ($("#location_city") && ciudad[0]){
+            $("#location_city").val(ciudad[0].long_name);
+          }
+          if ($("#location_state") && estado[0] ){
+            $("#location_state").val(estado[0].long_name);
+          }
+          if ($("#location_country") && pais[0]){
+            $("#location_country").val(pais[0].long_name);
+          }
+
            
             console.log(calle[0].long_name);
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
