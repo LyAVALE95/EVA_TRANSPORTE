@@ -6,22 +6,10 @@
 
 
 <h1><%= @company.name %></h1>
-    <td><%= link_to 'Editar compañia', edit_company_path(@company) %></td>   <input id="pac-input" class="controlsmap" type="text"
+    <td><%= link_to 'Editar compañia', edit_company_path(@company) %></td> 
+      <input id="pac-inputmap" class="controlsmap" type="text"
         placeholder="Enter a location">
-    <div id="type-selector" class="controlsmap">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
-
-      <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-establishment">Establishments</label>
-
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Addresses</label>
-
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
-    </div>
- <div id="mapita"></div>
+ <div id="mapitap"></div>
 <%else%>
 <h1>Mi compañia</h1>
 <img src="/assets/Bienvenido.png" alt="Mountain View" class="sincompania">

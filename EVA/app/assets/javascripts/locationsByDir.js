@@ -3,14 +3,14 @@
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('mapita'), {
+        var map = new google.maps.Map(document.getElementById('mapitap'), {
           center: {lat: -33.8688, lng: 151.2195},
           zoom: 13
         });
         var input = /** @type {!HTMLInputElement} */(
-            document.getElementById('pac-input'));
+            document.getElementById('pac-inputmap'));
 
-        var types = document.getElementById('type-selector');
+        var types = document.getElementById('type-selectormap');
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
@@ -24,6 +24,7 @@
         });
 
         autocomplete.addListener('place_changed', function() {
+          
           infowindow.close();
           marker.setVisible(false);
           var place = autocomplete.getPlace();
@@ -59,13 +60,45 @@
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
           }
-
+          console.log(place);
+          var colonia = place.address_components.filter(function(address_component){
+            return address_component.types.includes("neighborhood");
+        }); 
+          var numcalle = place.address_components.filter(function(address_component){
+            return address_component.types.includes("street_number");
+        }); 
+           var calle = place.address_components.filter(function(address_component){
+            return address_component.types.includes("route");
+        }); 
+           var ciudad = place.address_components.filter(function(address_component){
+            return address_component.types.includes("locality");
+        });
+           var estado = place.address_components.filter(function(address_component){
+            return address_component.types.includes("administrative_area_level_1");
+        });
+            var pais = place.address_components.filter(function(address_component){
+            return address_component.types.includes("country");
+        });
+             var cp = place.address_components.filter(function(address_component){
+            return address_component.types.includes("postal_code");
+        });
+            console.log(place.formatted_address);  
+             console.log(place.international_phone_number);  
+          if ($("#location_address")){
+            $("#location_address").val(place.formatted_address);
+          }
+            if ($("#location_street")){
+            $("#location_street").val(calle[0].long_name);
+          }
+           
+            console.log(calle[0].long_name);
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
           infowindow.open(map, marker);
         });
 
         // Sets a listener on a radio button to change the filter type on Places
         // Autocomplete.
+        /*
         function setupClickListener(id, types) {
           var radioButton = document.getElementById(id);
           radioButton.addEventListener('click', function() {
@@ -76,6 +109,6 @@
         setupClickListener('changetype-all', []);
         setupClickListener('changetype-address', ['address']);
         setupClickListener('changetype-establishment', ['establishment']);
-        setupClickListener('changetype-geocode', ['geocode']);
+        setupClickListener('changetype-geocode', ['geocode']);*/
 
        }
