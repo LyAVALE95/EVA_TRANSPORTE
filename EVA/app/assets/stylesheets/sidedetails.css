@@ -1,0 +1,34 @@
+#SecondContainer {
+	margin-top: 100px;
+    background-color: currentColor;
+   /* border-radius: 25px;*/
+    padding: 20px 50px 20px 10px;
+    border-style: solid;
+    border-width: 5px;
+     width: 300px;
+    /*border-color: black;*/
+}
+#SecondContainer #sectionA p{
+    font-size: 19px;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+#SecondContainer #sectionA p{
+    font-size: 15px;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+
+#sectionC button{
+    margin: -91px 53px 3px 0px;
+    height: 26px;
+    padding-bottom: 29px;
+    /* text-align: left; */
+    font-size: 15px;
+    /* border-radius: 8px; */
+    font-weight: bold;
+    width: 250px;
+}
+#sectionA{
+	margin-top: 10px;
+}

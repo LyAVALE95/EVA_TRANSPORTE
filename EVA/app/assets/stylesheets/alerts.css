@@ -1,3 +1,4 @@
+/*ALERTAS DE ESTADO-COLORES POR CADA ENTIDAD GRABADA*/
 #activo{
 	color: #1CA039;
 	text-align: center;
@@ -9,6 +10,17 @@
 	margin-bottom: 30px;
 	border-bottom: thick solid #1F4132;
 }
+#activop{
+	color: #14120D;
+	text-align: center;
+	background-color: #F1E896;
+	font-weight: bold;
+	font-size: 25px;	
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+	border-bottom: thick solid #EBC838;
+}
 #inactivo{
 	color: #AF1919;
 	text-align: center;
@@ -19,4 +31,37 @@
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 	border-bottom: thick solid #1F4132;
+}
+#activol{ /*Todo completo */
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #C4F1DD;
+    font-weight: bold;
+
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #1CA039;*/
+}
+#activolp{ /*Tiene campos pendientes*/
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #F1E896;
+    font-weight: bold;
+
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #1CA039;*/
+}
+#inactivol{ 
+    /* color: #1CA039; */
+    text-align: center;
+    background-color: #E9B7B2;
+    font-weight: bold;
+
+    /* padding-top: 20px; */
+    /* padding-bottom: 20px; */
+    /* margin-bottom: 30px; */
+    /*border-bottom: thick solid #AF1919;*/
 }

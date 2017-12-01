@@ -57,7 +57,10 @@ def sign_in_json
       #user.reset_authentication_token! hay que agregar validacion
       # Note that the data which should be returned depends heavily of the API client needs.
       render status: 200, json: { email: user.email, authentication_token: user.authentication_token,
-        id: id , company_id: user.company_id ,rol: user.rol , name: user.name, last_name: user.last_name, company_name: user.company.name }
+        id: id , company_id: user.company_id ,rol: user.rol , name: user.name, last_name: user.lastName}
+
+        #id: id , company_id: user.company_id ,rol: user.rol , name: user.name, lastName: user.lastName }
+
     else
       render status: 401, json: { message: 'Invalid email or password.' }
     end

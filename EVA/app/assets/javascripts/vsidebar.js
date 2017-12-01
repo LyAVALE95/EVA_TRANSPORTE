@@ -1,7 +1,7 @@
 
 $(document).ready(function () {
     
-$(".mainblock").css("margin-left", "70px");
+$(".mainblock").css("margin-left", "90px");
 $("#sidebar-wrapper").animate({left: '0px'});
 
    

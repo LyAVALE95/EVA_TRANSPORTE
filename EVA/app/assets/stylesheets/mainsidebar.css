@@ -10,8 +10,8 @@
 }
 
 #sidebar-wrapper {
-    margin-left: -100px;
-    left: 70px;
+    margin-left: -130px;
+    left: 90px;
     width: 150px;
     background: #222;
     position: fixed;
@@ -87,7 +87,9 @@
 .sidebar-nav li a:focus {
   text-decoration: none;
 }
-
+.sidebar-brand{
+  color: #E8D34A;
+}
 .sidebar-nav > .sidebar-brand {
   height: 65px;
   line-height: 60px;

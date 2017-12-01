@@ -72,6 +72,6 @@ class WarehousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def warehouse_params
-        params.require(:warehouse).permit(:name, :scheduleStart, :scheduleEnd, :scheduleDays, :tel,:location_id, :company_id, :clientcontact_id)
+        params.require(:warehouse).permit(:name, :scheduleStart, :scheduleEnd, :scheduleDays, :tel,:location_id, :company_id, :clientcontact_id,:customer_id)
     end
 end

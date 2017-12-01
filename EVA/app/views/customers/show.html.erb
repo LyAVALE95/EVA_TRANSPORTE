@@ -1,4 +1,158 @@
-<p id="notice"><%= notice %></p>
+<% if user_signed_in? %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to 'Editar', edit_customer_path(@customer) %> |
+<%= link_to 'Volver', customers_path %>
+<p id="notice"><%= notice %></p>
+<div class="showtemp">
+<% if @customer.active  %>
+ 
+    <% if @customer.tel != '' && @customer.address && @customer.country != '' && @customer.schedule != '' %>
+  <div id="activo">Activo</div>
+  
+  <%else%>
+   <div id="activo">Activo</div>
+    <div id="activop">Registro de cliente incompleto</div>
+  <%end%>
+  <%else%>
+    <div id="inactivo">Inactivo</div>
+  <%end%>
+  <p>
+  <strong>Nombre:</strong>
+  <%= @customer.names %> <%= @customer.lastnames %>
+</p>
+ <p>
+  <strong>Dirección:</strong>
+  <%= @customer.address %>
+</p>
+<p>
+  <strong>Dirección (Localidad):</strong>
+  <%= @customer.city %> , <%= @customer.state %>,  <%= @customer.country %>.
+</p>
+ <p>
+  <strong>Código postal:</strong>
+  <%= @customer.cp %>
+</p>
+ <p>
+  <strong>Notas:</strong>
+  <%= @customer.notes %>
+</p>
+<p>
+  <strong>Contacto:</strong>
+  <strong>Tel:</strong><%= @customer.tel %> / <strong>Móvil:</strong><%= @customer.movil %>
+</p>
+ <p>
+  <strong>Horario:</strong>
+  <%= @customer.schedule %>
+</p>
+
+</div>
+<div class="formulario col-md-12">
+<%= render 'clientcontacts/form', clientcontact: @clientcontact %>
+</div>
+<div class="formulario2 col-md-12">
+<%= render 'warehouses/form', warehouse: @warehouse %>
+</div>
+<div class="showtemp col-md-12">
+
+<div class="showtemp col-md-7">
+<div class="padbutton">
+  <button class="btn2 btn-danger btn-lg btntoggleform">
++Nuevo contacto
+</button>
+
+</div>
+<div id="activop" class="">Contactos de cliente</div>
+<table id="Datatable" class="table scroll table-striped table-bordered " >
+  <thead>
+    <tr>
+     <th>ID/Activo</th>
+       <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Telefóno</th>
+          <th>Correo electrónico</th>
+      <th class="Optionsth">Opciones</th>
+    </tr>
+  </thead>
+        
+  <tbody>
+    <% @customer.clientcontacts.each_with_index do |clientcontact,index| %>
+      <tr selID = "<%= clientcontact.id %>">
+      <% if clientcontact.active  %>
+
+    <% if clientcontact.tel != '' && clientcontact.mail && clientcontact.movil != '' %>
+          <td id="activol">  <%= index + 1  %></td>
+        <%else%>
+          <td id="activolp">  <%= index + 1  %></td>
+    <%end %>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
+        
+       
+      <td><%= clientcontact.names%></td>
+          <td><%= clientcontact.lastnames%></td>
+              <td><%= clientcontact.tel%></td>
+                  <td><%= clientcontact.mail%></td>
+         <td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', clientcontact %></li>
+        <li><%= link_to 'Editar', edit_clientcontact_path(clientcontact) %></li>
+        <li><%= link_to 'Eliminar', clientcontact, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></li>
+    </ul>
+      </div>
+    </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+</div>
+
+<div class="showtemp col-md-5">
+<div class="padbutton">
+  <button class="btn2 btn-danger btn-lg btntoggleform2">
++Nueva bodega
+</button>
+</div>
+<div id="activop" >Bodegas</div>
+<table id="Datatable" class="table scroll table-striped table-bordered " >
+  <thead>
+    <tr>
+    <th>#</th>
+     <th>Horario</th>
+      <th>Teléfono</th>
+       <th>Contacto</th>
+    <th class="Optionsth">Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customer.warehouses.each_with_index do |warehouse,index| %>
+      <tr>
+      <td><%= index +1 %></td>
+       <td><%= warehouse.scheduleStart%>-<%= warehouse.scheduleEnd%></td>
+       <td><%= warehouse.tel%></td>
+         <td><%= warehouse.clientcontact_id%></td>
+      <td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', warehouse %></li>
+        <li><%= link_to 'Editar', edit_warehouse_path(warehouse) %></li>
+        <li><%= link_to 'Eliminar', warehouse, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+      </div>
+    </td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<%end%>

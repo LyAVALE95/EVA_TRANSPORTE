@@ -15,3 +15,17 @@ $("#menu-toggle").click(function(e) {
   $( function() {
     $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' }).val();
   } );
+
+ 
+$(document).ready(function(){
+	$(".formulario").hide();
+    $(".btntoggleform").click(function(){
+        $(".formulario").toggle();
+    });
+});
+$(document).ready(function(){
+  $(".formulario2").hide();
+    $(".btntoggleform2").click(function(){
+        $(".formulario2").toggle();
+    });
+});

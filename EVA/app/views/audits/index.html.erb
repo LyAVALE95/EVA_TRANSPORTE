@@ -1,43 +1,80 @@
+<div id="FirstContainer" class="col-md-12 block">
+  <div class="col-md-12 block">
 <p id="notice"><%= notice %></p>
 
 <h1>Auditorías</h1>
-<button class="btn2 btn-danger btn-lg"
+
+   <button class="btn2 btn-danger btn-lg"
 onclick="window.location.href = '/audits/new'">
 Nuevo
 </button>
-
-<br>
+<br><br>
 <% if @audits.count == 0 %>
   <img src="/assets/0.png" alt="Mountain View" class="espaciolibre">
   <%else %>
-<table id="Datatable" data-src="buyers" class="table scroll table-striped table-bordered">
+<table id="Datatable" data-src="audits" class="table display scroll table-striped table-bordered Optional" data-toggle="table" data-detail-view="true" data-detail-formatter="detailFormatter">
   <thead>
     <tr>
-       <th> <button>#</button></th>
+       <th>ID/Activo</th>
        <th>Resultados</th>
        <th>Descripción</th>
        <th>Fecha</th>
-      <th colspan="3">Opciones</th>
+        <th class="Optionsth">Opciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @audits.each_with_index  do |audit, index| %>
-      <tr>
-         <td> <%= index + 1 %></td>
+      <tr selID = "<%= audit.id %>">
+      <% if audit.active  %>
+  <td id="activol">  <%= index + 1  %></td>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
+        
         <td><%= audit.results %></td>
         <td><%= audit.description %></td>
          <td><%= audit.created_at.to_s %> </td>
-
-
-        <td><%= link_to 'Mostrar', audit %></td>
-        <td><%= link_to 'Editar', edit_audit_path(audit) %></td>
-        <td><%= link_to 'Eliminar', audit, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></td>
+         <td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', audit %></li>
+        <li><%= link_to 'Editar', edit_audit_path(audit) %></li>
+        <li><%= link_to 'Eliminar', audit, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    </ul>
+      </div>
+    </td>
+      <span style="display: none;" id="desc0">
+                    <strong class="bold">Description:</strong>
+                    <br>
+                    <pre>This is row with id=0, containing other content</pre>
+                </span>
       </tr>
     <% end %>
   </tbody>
 </table>
     <% end %>
 <br>
+</div>
+</div>
 
+<div id="SecondContainer" class="col-md-5 block">
+  <div class="tab-content">
+ 
 
+    <div id="sectionA" class="tab-pane fade in active">
+
+      <span id="RowDetails">
+      </span>
+    </div>
+    <div id="sectionB" class="tab-pane fade">
+      
+    </div>
+     <div id="sectionC">
+      <button  id = "btnCloseDetails" class="btnx btn-danger">Cerrar</button>
+    </div>
+
+  </div>
+</div>

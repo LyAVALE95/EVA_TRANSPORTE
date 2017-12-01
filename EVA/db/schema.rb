@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171119212324) do
+ActiveRecord::Schema.define(version: 20171121150827) do
 
   create_table "audits", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "results"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171119212324) do
     t.datetime "updated_at", null: false
     t.bigint "load_id"
     t.bigint "company_id"
+    t.boolean "active"
     t.index ["company_id"], name: "index_audits_on_company_id"
     t.index ["load_id"], name: "index_audits_on_load_id"
   end
@@ -95,7 +96,9 @@ ActiveRecord::Schema.define(version: 20171119212324) do
     t.datetime "updated_at", null: false
     t.bigint "company_id"
     t.bigint "user_id"
+    t.bigint "location_id"
     t.index ["company_id"], name: "index_customers_on_company_id"
+    t.index ["location_id"], name: "index_customers_on_location_id"
     t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
@@ -289,8 +292,6 @@ ActiveRecord::Schema.define(version: 20171119212324) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "license_id"
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_trucks_on_company_id"
     t.index ["license_id"], name: "index_trucks_on_license_id"
   end
 
@@ -379,6 +380,7 @@ ActiveRecord::Schema.define(version: 20171119212324) do
   add_foreign_key "company_lines", "carrier_lines"
   add_foreign_key "company_lines", "companies"
   add_foreign_key "customers", "companies"
+  add_foreign_key "customers", "locations"
   add_foreign_key "customers", "users"
   add_foreign_key "drivers", "carrier_lines"
   add_foreign_key "drivers", "licenses"
@@ -407,7 +409,6 @@ ActiveRecord::Schema.define(version: 20171119212324) do
   add_foreign_key "travels", "mts"
   add_foreign_key "travels", "states"
   add_foreign_key "travels", "trucks"
-  add_foreign_key "trucks", "companies"
   add_foreign_key "trucks", "licenses"
   add_foreign_key "type_scaffolds", "companies"
   add_foreign_key "type_scaffolds", "licenses"
