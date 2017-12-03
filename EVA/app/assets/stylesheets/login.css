@@ -1,3 +1,11 @@
+.login{ 
+  background-color: darkcyan;
+    width: 2999px;
+    height: 1200px;
+    margin-left: -156px;
+    margin-top: -10px;
+     }
+
 .login-form input {
   ::-webkit-input-placeholder {
      color: rgba(255,255,255,0.7);
@@ -22,12 +30,16 @@
   }
 }
 .login-form {
-  //background: #222;
-  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  /*background: #222;*/
+  /*box-shadow: 0 0 1rem rgba(0,0,0,0.3);*/
   min-height: 10rem;
   margin: auto;
   max-width: 50%;
   padding: .5rem;
+}
+.login_form{
+
+    padding: 19px 10px 19px 10px;
 }
 .login-text {
   //background: hsl(40,30,60);
@@ -80,6 +92,8 @@
   }
 }
 .login-submit {
+  width: 200px;
+  height: 50px;
   border: 1px solid white;
   background: transparent;
   color: white;
@@ -94,9 +108,29 @@
     transition: 250ms background ease-in;
   }
 }
+.form_log{
+      /*background-color: white;*/
+    width: 500px;
+    align-content: center;
+    /*text-align: center;*/
+    padding: 29px 10px 100px 10px;
+    /*margin-bottom: 50px;*/
+    margin-left: 500px;
+    border-radius: 50px;
+}
+.login-heading{
+      font-weight: 700;
+    color: #fcf8e3;
+    line-height: 1.4;
+    margin: 0 0 15px;
+    padding: 50px 12px 34px 58px;
+    text-align: center;
+       font-size: 60px;
+}
 
-
-
+.login-heading h1 {
+   
+}
 
 [class*=underlay] {
   left: 0;

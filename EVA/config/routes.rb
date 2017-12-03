@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     #root :to => "travels#index"
     root :to => "companies#mycompany"
   end
-  root 'home#welcome'
+  #root 'home#homemain'
+    root 'home#welcome'
 
 
   

@@ -1,45 +1,48 @@
-<h2>Registro</h2>
+<div class="login">
+<div  class="col-sm-6 col-md-6 col-lg-6 ">
+<h1 class="login-heading">Registro</h1>
 <div class="registro">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<div class="form_log">
  <div class="field">
     <%= f.label :name, "Nombre" %><br />
-    <%= f.text_field :name, autofocus: true %>
+    <%= f.text_field :name, class: "input-txt" , autofocus: true %>
   </div>
    <div class="field">
     <%= f.label :lastName, "Apellidos" %><br />
-    <%= f.text_field :lastName %>
+    <%= f.text_field :lastName, class: "input-txt"  %>
   </div>
    <div class="field">
     <%= f.label :RFC, "RFC" %><br />
-    <%= f.text_field :RFC %>
+    <%= f.text_field :RFC, class: "input-txt"  %>
   </div>
   <div class="field">
     <%= f.label :email, "Correo electrónico" %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, class: "input-txt"  %>
   </div>
 
   <div class="field">
-    <%= f.label :password, "Contraseña" %>
+    <%= f.label :password, "Contraseña"  %>
 
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, class: "input-txt" , autocomplete: "off" %>
   </div>
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirmación de contraseña" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, class: "input-txt" , autocomplete: "off" %>
   </div>
 
   
 </div>
+</div>
 
  <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Registrarme", class: "login-submit"  %>
   </div>
 <% end %>
-
-              
+</div>
+          </div>    

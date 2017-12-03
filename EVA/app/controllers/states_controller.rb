@@ -5,6 +5,7 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.where("company_id = ?", current_user.company_id)
+  end
 
   # GET /states/1
   # GET /states/1.json
