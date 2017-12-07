@@ -14,7 +14,14 @@ class TravelsController < ApplicationController
       format.json { render json: @travels }
     end
   end
-
+  def travelsCustomer
+    #hay que cambiar la consulta para que traiga los viajes del cliente
+    @travels = Travel.where("company_id = ? AND driver_id = ?", current_user.company_id ,params[:id])
+    
+    respond_to do |format|
+      format.json { render json: @travels }
+    end
+  end
   # GET /travels/1
   # GET /travels/1.json
   def show
