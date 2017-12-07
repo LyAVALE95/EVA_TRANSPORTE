@@ -1,0 +1,8 @@
+
+development:
+  access_key_id: AKIAJYIW7UOKM47P42KQ
+  secret_access_key: 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
+
+production:
+  access_key_id: AKIAJYIW7UOKM47P42KQ
+  secret_access_key: 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

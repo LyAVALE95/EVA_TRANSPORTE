@@ -44,8 +44,8 @@
           </div>
             <div class="form-group">
             <%= form.label :location_id,"Localización", class: "control-label  col-sm-1" %>
-              <div class="col-sm-11 ">
-                <%= form.text_field :location_id, id: :audit_results, class: "form-control border" %>
+              <div class="col-sm-11 form-control border">
+                     <%= select(:warehouse, :location_id, @mylocations.map {|v| [ v['name'], v['id'] ] }) %>
               </div>
           </div>
             <div class="form-group">

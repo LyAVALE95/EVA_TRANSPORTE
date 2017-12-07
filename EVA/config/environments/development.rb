@@ -52,8 +52,8 @@ Rails.application.configure do
   storage: :s3,
   s3_credentials:  {
     bucket:  ENV['evatr'],
-    access_key_id:  ENV['AKIAJDW3P4NIK4LH4HLQ'],
-    secret_access_key:  ENV['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'],
+    access_key_id:  ENV['AKIAJYIW7UOKM47P42KQ'],
+    secret_access_key:  ENV['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'],
     s3_region: ENV['us-west-2']
   }
 }

@@ -8,6 +8,7 @@ before_action :set_admin
 def set_admin
   if current_user
    @mycompany = Company.where("id = ?",current_user.company_id).first
+   @mylocations = Location.where("company_id = ?",current_user.company_id)
  else
     @mycompany = ""
  end
