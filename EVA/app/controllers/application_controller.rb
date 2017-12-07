@@ -5,10 +5,13 @@ class ApplicationController < ActionController::Base
   acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
 before_action :set_admin
+
 def set_admin
   if current_user
    @mycompany = Company.where("id = ?",current_user.company_id).first
    @mylocations = Location.where("company_id = ?",current_user.company_id)
+   @myclientContacts = Clientcontact.joins(' inner join customers')
+    .where('customers.id=?',params[:id] )
  else
     @mycompany = ""
  end

@@ -51,6 +51,7 @@
           }));
           marker.setPosition(place.geometry.location);
           marker.setVisible(true);
+          //console.log('DIR:' + place.geometry.location);
 
           var address = '';
           if (place.address_components) {
@@ -60,7 +61,8 @@
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
           }
-          console.log(place);
+          //console.log(place);
+
           var colonia = place.address_components.filter(function(address_component){
             return address_component.types.includes("neighborhood");
         }); 
@@ -108,9 +110,9 @@
           if ($("#location_country") && pais[0]){
             $("#location_country").val(pais[0].long_name);
           }
-
-           
-            console.log(calle[0].long_name);
+          $("#location_coordinates").val(place.geometry.location.toString().substring(1,(place.geometry.location.toString().trim().length ) -1 ));/*Esto es de a hueso */
+           //console.log(place);
+            //console.log(calle[0].long_name);
           infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
           infowindow.open(map, marker);
         });

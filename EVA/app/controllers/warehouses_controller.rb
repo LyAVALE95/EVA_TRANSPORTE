@@ -5,11 +5,19 @@ class WarehousesController < ApplicationController
   # GET /warehouses.json
   def index
     @warehouses = Warehouse.where("company_id = ?", current_user.company_id)
+
   end
 
   # GET /warehouses/1
   # GET /warehouses/1.json
   def show
+     @location  = Location.joins('inner join warehouses')
+    .where('warehouses.location_id=locations.id' ).first
+    @client  = Customer.joins('inner join warehouses')
+    .where('warehouses.customer_id=customers.id' ).first
+    @clientcontact  = Clientcontact.joins(' inner join warehouses')
+    .where('warehouses.clientcontact_id=clientcontacts.id' ).first
+    #Clientcontact.where("warehouse_id = ?", params[:id]).first
   end
 
   # GET /warehouses/new

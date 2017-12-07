@@ -1,4 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_warehouse_path(@warehouse) %> |
-<%= link_to 'Back', warehouses_path %>
+
+<div class="showtemp">
+<% if @warehouse.active  %>
+<div id="activo">Activo</div>
+  <%else%>
+  <div id="inactivo">Inactivo</div>
+  <%end%>
+  </div>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @warehouse.name %>
+	</p>
+	<p>
+  <strong>Hora de entrada:</strong>
+  <%= @warehouse.scheduleStart %>
+	</p>
+		<p>
+  <strong>Hora de salida:</strong>
+  <%= @warehouse.scheduleEnd %>
+	</p>
+	<p>
+  <strong>Días de trabajo :</strong>
+  <%= @warehouse.scheduleDays %>
+	</p>
+		<p>
+  <strong>Teléfono:</strong>
+  <%= @warehouse.tel %>
+	</p>
+	<p>
+  <strong>Cliente:</strong>
+  <%= @client.names %> <%= @client.lastnames %>
+	</p>
+	<p>
+  <strong>Dirección:</strong>
+  <%= @location.address %> 
+	</p>
+		<div id="activoi">Contacto del cliente</div>
+  <p>Nombre:<%= @clientcontact.names %><%= @clientcontact.lastnames %><p>
+  <p>Teléfono:   <%= @clientcontact.tel %></p>
+  <p>Teléfono móvil:   <%= @clientcontact.movil %></p>
+	
+
+
+
+
+  <%= link_to 'Editar', edit_warehouse_path(@warehouse) %> |
+<%= link_to 'Volver', warehouses_path %>
