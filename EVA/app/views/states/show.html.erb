@@ -1,4 +1,27 @@
+<% if user_signed_in? %>
+
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_state_path(@state) %> |
-<%= link_to 'Back', states_path %>
+<%= link_to 'Editar', edit_state_path(@state) %> |
+<%= link_to 'Volver', states_path %>
+<div class="showtemp">
+<p>
+  <strong>Nombre:</strong>
+  <%= @state.name %>
+	</p>
+
+	<p>
+  <strong>Código:</strong>
+  <%= @state.code %>
+	</p>
+	<p>
+  <strong>Grado:</strong>
+  <%= @state.grade %>
+	</p>
+	<p>
+  <strong>Protocolo:</strong>
+  <%= @state.protocol %>
+	</p>
+</div>
+
+<%end%>

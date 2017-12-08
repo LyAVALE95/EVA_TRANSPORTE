@@ -32,9 +32,30 @@
               </div>
           </div>
             <div class="form-group">
-            <%= form.label :extSpent ,"Gasto extra", class: "control-label col-sm-1" %>
+            <%= form.label :extSpent ,"Gasto extra", class: "control-label col-sm-1" %> 
               <div class="col-sm-11">
                 <%= form.text_field :extSpent, id: :audit_description, class: "form-control border" %>
+              </div>
+          </div>
+             <div class="form-group">
+            <%= form.label :location_id ,"Dirección", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= select(:stand, :location_id, @mylocations.map {|v| [
+                v['address'] , v['id'] ] }) %>
+              </div>
+          </div>
+              <div class="form-group">
+            <%= form.label :rate_expense_id ,"Dirección", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= select(:stand, :rate_expense_id, @myrateExpenses.map {|v| [
+                v['name'] , v['id'] ] }) %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :state_id ,"Dirección", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+                <%= select(:stand, :state_id, @mystates.map {|v| [
+                v['name'] , v['id'] ] }) %>
               </div>
           </div>
           
@@ -45,6 +66,7 @@
       </div>
 
   <div class="actions">
+  
     <%= form.submit %>
   </div>
 <% end %>

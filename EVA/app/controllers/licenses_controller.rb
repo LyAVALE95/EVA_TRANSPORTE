@@ -4,12 +4,12 @@ class LicensesController < ApplicationController
   # GET /licenses
   # GET /licenses.json
   def index
-    @licenses = License.all
+    @licenses = License.where("company_id = ?", current_user.company_id)
   end
 
   # GET /licenses/1
   # GET /licenses/1.json
-  def show
+  def show 
   end
 
   # GET /licenses/new
@@ -26,7 +26,7 @@ class LicensesController < ApplicationController
   def create
     @license = License.new(license_params)
       if current_user.company_id
-         @license.user_id = current_user.id
+         @license.company_id = current_user.company_id
        end
 
     respond_to do |format|

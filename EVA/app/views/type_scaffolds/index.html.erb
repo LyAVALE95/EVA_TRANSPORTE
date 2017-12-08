@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Tipo de parada</h1>
+<h1>Tipo de carga</h1>
 <button class="btn2 btn-danger btn-lg"
 onclick="window.location.href = '/type_scaffolds/new'">
 Nuevo
@@ -26,7 +26,11 @@ Nuevo
   <tbody>
     <% @type_scaffolds.each_with_index do |type_scaffold,index| %>
       <tr>
-        <td><%= index +1 %></td>
+      <% if type_scaffold.active  %>
+       <td id="activol">  <%= index + 1  %></td>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
         <td><%= type_scaffold.description %></td>
         <td><%= type_scaffold.weigth %></td>
         <td><%= type_scaffold.size %></td>

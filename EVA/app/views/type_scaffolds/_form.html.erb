@@ -50,18 +50,23 @@
                 <%= form.text_field :extraHours, id: :audit_description, class: "form-control border" %>
               </div>
           </div>
+            <div class="form-group">
+            <%= form.label :license_id ,"Licencia", class: "control-label col-sm-1" %>
+              <div class="col-sm-11">
+               
+                <%= select(:audit, :license_id, @mylicenses.map {|v| [
+                v['type_license'] , v['id'] ] }) %>
+              </div>
+          </div>
              <div class="form-group">
             <%= form.label :active ,"Activo", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
                 <%= form.check_box :active, id: :audit_description, class: "form-control border" %>
               </div>
           </div>
-             <div class="form-group">
-            <%= form.label :license_id ,"Licencia", class: "control-label col-sm-1" %>
-              <div class="col-sm-11">
-                <%= form.text_field :license_id, id: :audit_description, class: "form-control border" %>
-              </div>
-          </div>
+
+
+        
 
         </div>
 

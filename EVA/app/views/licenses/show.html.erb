@@ -1,4 +1,21 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-
 <%= link_to 'Edit', edit_license_path(@license) %> |
 <%= link_to 'Back', licenses_path %>
+<div class="showtemp">
+<% if @license.validity  %>
+  <div id="activo">Válido</div>
+  <%else%>
+    <div id="inactivo">Inválido</div>
+  <%end%>
+  <p>
+  <strong>Tipo:</strong>
+  <%= @license.type_license %>
+	</p>
+ <p>
+  <strong>Costo:</strong>
+  <%= @license.cost %>
+	</p>
+
+</div>
+<%end%>

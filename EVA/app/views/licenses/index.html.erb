@@ -23,7 +23,11 @@ Nuevo
   <tbody>
     <% @licenses.each_with_index do |license, index| %>
       <tr>
-      <td><%= index + 1 %></td>
+      <%if license.validity%>
+      <td id="activol">  <%= index + 1  %></td>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
       <td><%= license.type_license %></td>
       <td><%= license.cost %></td>
       <td><%= license.validity %></td>

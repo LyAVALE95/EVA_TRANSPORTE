@@ -12,6 +12,9 @@ def set_admin
    @mylocations = Location.where("company_id = ?",current_user.company_id)
    @myclientContacts = Clientcontact.joins(' inner join customers')
     .where('customers.id=?',params[:id] )
+     @mylicenses = License.where("company_id = ?",current_user.company_id)
+     @myrateExpenses = RateExpense.where("company_id = ?",current_user.company_id)
+     @mystates = State.where("company_id = ?",current_user.company_id)
  else
     @mycompany = ""
  end

@@ -1,4 +1,15 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_stand_path(@stand) %> |
-<%= link_to 'Back', stands_path %>
+<%= link_to 'Editar', edit_stand_path(@stand) %> |
+<%= link_to 'Volver', stands_path %>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @stand.name %>
+	</p>
+<p>
+  <strong>Descrición:</strong>
+  <%= @stand.description %>
+	</p>
+<%end%>

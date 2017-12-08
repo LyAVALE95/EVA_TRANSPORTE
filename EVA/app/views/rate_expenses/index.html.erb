@@ -24,7 +24,12 @@ Nuevo
   <tbody>
     <% @rate_expenses.each_with_index do |rate_expense, index| %>
       <tr>
-        <td><%= index +1 %></td>
+      <%if rate_expense.active %>
+         <td id="activol">  <%= index + 1  %></td>
+  <%else%>
+    <td id="inactivol"> <%= index + 1  %></td>
+  <%end%>
+      
         <td><%= rate_expense.name %></td>
          <td><%= rate_expense.description %></td>
         <td><%= rate_expense.cost %></td>

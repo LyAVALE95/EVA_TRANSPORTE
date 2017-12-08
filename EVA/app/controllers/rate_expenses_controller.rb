@@ -4,8 +4,8 @@ class RateExpensesController < ApplicationController
   # GET /rate_expenses
   # GET /rate_expenses.json
   def index
-    @rate_expenses = RateExpense.all
-  end
+    @rate_expenses = RateExpense.where("company_id = ?", current_user.company_id)
+  end 
 
   # GET /rate_expenses/1
   # GET /rate_expenses/1.json
@@ -25,7 +25,9 @@ class RateExpensesController < ApplicationController
   # POST /rate_expenses.json
   def create
     @rate_expense = RateExpense.new(rate_expense_params)
-
+       if current_user.company_id
+         @rate_expense.company_id = current_user.company_id
+       end
     respond_to do |format|
       if @rate_expense.save
         format.html { redirect_to @rate_expense, notice: 'Rate expense was successfully created.' }
