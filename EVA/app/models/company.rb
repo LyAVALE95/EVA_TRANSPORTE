@@ -4,5 +4,7 @@ class Company < ApplicationRecord
   	validates :legalName, presence: true
   	  validates :code, presence: true
   	    validates :tel, presence: true
+  	      	    validates :active, presence: true
+
 end
 

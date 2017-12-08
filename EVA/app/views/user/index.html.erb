@@ -9,12 +9,12 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Name</th>
-      <th>Lastname</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
       <th>Rol</th>
-      <th>Email</th>
-      <th>Last sign in</th>
-      <th>Controls</th>
+      <th>Correo electrónico</th>
+      <th>Última conexión</th>
+      <th class="Optionsth">Opciones</th>
     </tr>
   </thead>
   <tbody>
@@ -27,12 +27,19 @@
       <td> <%= user.rol %></td>
       <td> <%= user.email %></td>
       <td> <%= user.last_sign_in_at %></td>
+     
       <td>
-        <%= link_to 'Edit', edit_users_admin_path(user) %>
-        <% if user.rol != 'administrador' && user.rol != 'ejecutivo' %>
-        <%= link_to 'Destroy', users_admin_path(user), method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </td>
+        <div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="/users_admin/<%=user.id%>">Mostrar</a></li>
+        <li> <%= link_to 'Editar', edit_users_admin_path(user) %></li>
+        <li><%= link_to 'Eliminar', users_admin_path(user), method: :delete, data: { confirm: '¿Está seguro(a)?' } %></li>
+    </ul>
+      </div>
+    </td>
+
     </tr>
     <% end %>
   </tbody>
