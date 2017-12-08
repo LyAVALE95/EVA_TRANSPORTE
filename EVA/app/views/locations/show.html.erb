@@ -5,6 +5,17 @@
   <strong>Dirección</strong>
   <%= @location.address %>
 </p>
+<textarea  rows="2" type="" name="" id="latlngmap" text=<%= @location.coordinates %> value=<%= @location.coordinates %> > <%= @location.coordinates %></textarea> 
+<div class="col-md-6">
+<p>
+	
+	 <input id="submitmapita" type="button" value="Buscar dirección" onclick="geocodeLatLng()">
+</p>
+</div>
+<!--<input id="latlng" type="text" value= <%= @location.coordinates %> >-->
+
+     
+<div id="mapitap"></div>
 
 <%= link_to 'Edit', edit_location_path(@location) %> |
 <%= link_to 'Back', locations_path %>

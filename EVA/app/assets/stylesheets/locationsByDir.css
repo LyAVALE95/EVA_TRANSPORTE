@@ -2,7 +2,14 @@
        * element that contains the map. */
       #mapitap {
         height: 400px;
+        width: 800px;
+      }
+       #mapitapx {
+        height: 400px;
         width: 1000px;
+      }
+      #latlngmap{
+        display: none;
       }
       /* Optional: Makes the sample page fill the window. */
     
