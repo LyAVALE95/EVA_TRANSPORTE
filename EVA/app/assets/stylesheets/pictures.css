@@ -2,7 +2,14 @@
 {
 	/*border-radius: 360px;*/
 	width: 380px;
-	height: 480px;
+	height: 380px;
 	margin-left: 20px;
 	margin-top: 40px;
+}
+ .pictureboxmin
+{
+	/*border-radius: 360px;*/
+	width: 30px;
+	height: 30px;
+
 }

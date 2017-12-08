@@ -18,11 +18,20 @@
     </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.each_with_index do |user,index| %>
     <tr>
    
-      <td> <%= user.id %></td>
-      <td> <%= user.name %></td>
+
+      <td> 
+          <%if DateTime.now.utc.to_date == user.birthday.to_s.to_date%>
+         <% image_tag( "/assets/gift.png" , :alt => "rss feed", :class => "pictureboxmin");%>
+         <img src="/assets/gift.png" alt="Mountain View" class="pictureboxmin">
+      <%else%>
+      
+     <%= index + 1 %>
+        <%end%>
+      </td>
+      <td> <%= user.birthday.to_s.to_date %></td>
       <td> <%= user.lastName %></td>
       <td> <%= user.rol %></td>
       <td> <%= user.email %></td>

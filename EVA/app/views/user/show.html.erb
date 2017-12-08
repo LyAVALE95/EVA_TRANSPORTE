@@ -39,7 +39,7 @@
   <p>
   <strong>Sección:</strong>
   <%= @user.section %>
-  </p>
+  </p> 
    <p>
   <strong>Categoría:</strong>
   <%= @user.category %>
@@ -47,6 +47,14 @@
   <p>
   <strong>RFC:</strong>
   <%= @user.RFC %>
+  </p> 
+   <p>
+  <strong>Fecha de nacimiento:</strong>
+  <%if DateTime.now.utc.to_date == @user.birthday.to_s.to_date%>
+         <% image_tag( "/assets/gift.png" , :alt => "rss feed", :class => "pictureboxmin");%>
+         <img src="/assets/gift.png" alt="Mountain View" class="pictureboxmin">
+      <%end%>
+  <%= @user.birthday.to_s.to_date%>
   </p> 
 </center>
 
