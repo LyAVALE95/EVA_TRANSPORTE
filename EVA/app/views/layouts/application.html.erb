@@ -71,7 +71,7 @@
         <div class="col-lg-2 col-md-2 col-sm-2">
             <ul class="nav sidebar-nav" id="side-list">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="/">
                     <% if current_user.company_id? %>
                         <h3 class="sidebar-brand"><%= @mycompany.name %></h3>
                       <% end %>
@@ -89,7 +89,7 @@
      
                 </li>
                 <li>
-          <button class=" btn-options btn btn-warning sideb btn-lg dropdown-toggle" type="button" data-toggle ="dropdown">Datos
+          <button class=" btn-options btn btn-warning sideb btn-lg dropdown-toggle" type="button" data-toggle ="dropdown">Datos base
            <span class="caret"></span></button>
     <ul class="dropdown-menu fol">
        <li> <a href="/licenses">Licencias </a></li>
@@ -101,8 +101,18 @@
     </ul>
      
                 </li>
+
+                <li>
+          <button class=" btn-options btn btn-warning sideb btn-lg dropdown-toggle" type="button" data-toggle ="dropdown">Paquetería
+           <span class="caret"></span></button>
+    <ul class="dropdown-menu fol">
+       <li> <a href="/loads">Cargas </a></li>
+        <li> <a href="/packages">Paquetes</a></li> 
+    </ul>
+     
+                </li>
                     <li>
-                    <a href="http://localhost:3000">Inicio</a>
+                    <a href="/">Inicio</a>
                 </li>
                 <li>
                     <a href="/users_admin">Mis usuarios</a>

@@ -11,19 +11,26 @@
     </div>
   <% end %>
   <div class="col-md-12 block">
-        <div class="col-md-12 block">
+        <div class="col-md-6 block">
           <div class="form-group">
-            <%= form.label :gpsReads,"GPS", class: "control-label col-sm-1" %>
+            <%= form.label :gpsReads,"GPS Lectura", class: "control-label col-sm-1" %>
               <div class="col-sm-11 ">
                 <%= form.text_field :gpsReads, id: :travel_Reads, class: "form-control border" %>
               </div>
           </div>
           <div class="form-group">
-            <%= form.label :details,"Detalles", class: "control-label col-sm-1" %>
+            <%= form.label :gpsDate,"última actualización GPS", class: "control-label col-sm-1" %>
               <div class="col-sm-11 ">
-                <%= form.text_field :details, id: :travel_Reads, class: "form-control border" %>
+                <%= form.text_field :gpsDate, id: :travel_Reads, class: "form-control border" %>
               </div>
           </div>
+          <div class="form-group">
+            <%= form.label :details,"Detalles", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :details, id: :travel_details, class: "form-control border" %>
+              </div>
+          </div>
+          
           <div class="form-group">
             <%= form.label :hoursPlanned,"Horas planeadas", class: "control-label col-sm-1" %>
               <div class="col-sm-11 ">
@@ -40,9 +47,61 @@
       <div class="form-group">
             <%= form.label :carrier_line_id,"Línea transportista", class: "control-label col-sm-1" %>
               <div class="col-sm-11 ">
-                <%= form.text_field :carrier_line_id, id: :travel_Reads, class: "form-control border" %>
+                <%= form.text_field :carrier_line_id, id: :travel_Reads, class: "form-control border", value: "1" %>
               </div>
           </div>
+          
+          
+        </div>
+        <div class="col-md-6 block">
+        <div class="form-group">
+            <%= form.label :kms,"Distancia", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :kms, id: :travel_kms, class: "form-control border" %>
+              </div>
+          </div>
+        <div class="form-group">
+            <%= form.label :cost,"Costo total", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= form.text_field :cost, id: :travel_cost, class: "form-control border" %>
+              </div>
+          </div>
+        <div class="form-group">
+            <%= form.label :idOrigen,"Origen", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                 <%= select(:travel, :idOrigen, @mylocations.map {|v| [
+                v['address'] , v['id'] ] }) %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :idDestine,"Destino", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                       <%= select(:travel, :idDestine, @mylocations.map {|v| [
+                v['address'] , v['id'] ] }) %>
+              </div>
+          </div>
+           <div class="form-group">
+            <%= form.label :load_id,"Carga", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                 <%= select(:travel, :load_id, @myloads.map {|v| [
+                v['packageNumber'] , v['id'] ] }) %>
+              </div>
+          </div>
+      <div class="form-group">
+            <%= form.label :driver_id,"Conductor", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+                <%= select(:travel, :driver_id, @mydrivers.map {|v| [
+                v['names'] + " " +  v['lastnames'] , v['id'] ] }) %>
+              </div>
+          </div>
+          <div class="form-group">
+            <%= form.label :truck_id,"Unidad", class: "control-label col-sm-1" %>
+              <div class="col-sm-11 ">
+             <%= select(:travel, :driver_id, @mytrucks.map {|v| [
+                v['model']  , v['id'] ] }) %>
+              </div>
+          </div>
+
         </div>
       </div>
 

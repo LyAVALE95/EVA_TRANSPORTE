@@ -4,7 +4,7 @@ class LoadsController < ApplicationController
   # GET /loads
   # GET /loads.json
   def index
-    @loads = Load.all
+    @loads = Load.where("company_id = ?", current_user.company_id)
   end
 
   # GET /loads/1
@@ -26,7 +26,7 @@ class LoadsController < ApplicationController
   def create
     @load = Load.new(load_params)
     if current_user.company_id
-         @load.carrier_line_id = current_user.company_id
+         @load.company_id = current_user.company_id
        end
 
     respond_to do |format|
@@ -72,6 +72,6 @@ class LoadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def load_params
-            params.require(:load).permit(:arrivalDate, :packageNumber, :details,:check, :cost,:customer_id, :warehouse_id,:carrier_line_id,:state_id,:type_scaffolds_id )
+            params.require(:load).permit(:arrivalDate, :packageNumber, :details,:check, :cost,:customer_id, :warehouse_id,:carrier_line_id,:state_id,:type_scaffolds_id,:active )
     end
 end

@@ -42,19 +42,21 @@
            <div class="form-group">
             <%= form.label :type_scaffold_id ,"Estructura", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :type_scaffold_id, id: :audit_description, class: "form-control border" %>
+              <%= select(:package, :type_scaffold_id, @mypeScaffold.map {|v| [ v['description'] , v['id'] ] }) %>
+               
               </div>
           </div>
            <div class="form-group">
             <%= form.label :load_id ,"Carga", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :load_id, id: :audit_description, class: "form-control border" %>
+                 <%= select(:package, :load_id, @myloads.map {|v| [ v['packageNumber'] , v['id'] ] }) %>
               </div>
           </div>
         <div class="form-group">
-            <%= form.label :state_id ,"Carga", class: "control-label col-sm-1" %>
+            <%= form.label :state_id ,"Estado", class: "control-label col-sm-1" %>
               <div class="col-sm-11">
-                <%= form.text_field :state_id, id: :audit_description, class: "form-control border" %>
+                    <%= select(:package, :state_id, @mystates.map {|v| [
+                ' #' + v['code']  + ' '+ v['name'], v['id'] ] }) %>
               </div>
           </div>
      

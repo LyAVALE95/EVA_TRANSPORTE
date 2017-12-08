@@ -7,14 +7,21 @@ class ApplicationController < ActionController::Base
 before_action :set_admin
 
 def set_admin
-  if current_user
+  if current_user 
    @mycompany = Company.where("id = ?",current_user.company_id).first
    @mylocations = Location.where("company_id = ?",current_user.company_id)
    @myclientContacts = Clientcontact.joins(' inner join customers')
-    .where('customers.id=?',params[:id] )
+    .where('customers.id=? AND active = true',params[:id] )
      @mylicenses = License.where("company_id = ?",current_user.company_id)
      @myrateExpenses = RateExpense.where("company_id = ?",current_user.company_id)
      @mystates = State.where("company_id = ?",current_user.company_id)
+      @myclients = Customer.where("company_id = ?",current_user.company_id)
+        @mypeScaffold = TypeScaffold.where("company_id = ?",current_user.company_id)
+        @mywarehouses = Warehouse.where("company_id = ?",current_user.company_id)
+         @myloads = Load.where("company_id = ? AND active = true",current_user.company_id)
+          @mydrivers = Driver.where("company_id = ? AND active = true",current_user.company_id)
+         @mytrucks = Truck.where("company_id = ? AND active = true",current_user.company_id)
+
  else
     @mycompany = ""
  end

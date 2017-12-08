@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20171121150827) do
   end
 
   create_table "customers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "names"
+    t.string "names"  
     t.string "lastnames"
     t.string "address"
     t.string "city"

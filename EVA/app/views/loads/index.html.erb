@@ -14,7 +14,6 @@ Nuevo
   <thead>
     <tr>
     <th>Fecha de arribo</th>
-    <th>Numero de paquete</th>
     <th>Costo</th>
     <th>Cliente</th>
     <th>Línea de transporte</th>
@@ -26,13 +25,20 @@ Nuevo
     <% @loads.each_with_index do |load, index| %>
       <tr>
         <td><%= load.arrivalDate %></td>
-         <td><%= load.packageNumber %></td>
            <td><%= load.cost %></td>
              <td><%= load.customer_id %></td>
                <td><%= load.carrier_line_id %></td>
-        <td><%= link_to 'Show', load %></td>
-        <td><%= link_to 'Edit', edit_load_path(load) %></td>
-        <td><%= link_to 'Destroy', load, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+
+        <td><div class="dropdown">
+    <button class="btn btn-warning btn-options dropdown-toggle" type="button" data-toggle ="dropdown">Opciones
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><%= link_to 'Mostrar', load %></li>
+        <li><%= link_to 'Editar', edit_load_path(load) %></li>
+        <li><%= link_to 'Eliminar', load, method: :delete, data: { confirm: '¿Está seguro(a)?' } %></li>
+    </ul>
+      </div></td>
       </tr>
     <% end %>
   </tbody>
