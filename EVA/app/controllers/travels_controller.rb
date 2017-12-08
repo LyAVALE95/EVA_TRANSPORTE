@@ -18,6 +18,8 @@ class TravelsController < ApplicationController
   # GET /travels/1
   # GET /travels/1.json
   def show
+    @miOrigen = Location.where("id=?" ,@travel.idOrigen).first
+    @miDestino = Location.where("id=?" ,@travel.idDestine).first
   end
 
   # GET /travels/new

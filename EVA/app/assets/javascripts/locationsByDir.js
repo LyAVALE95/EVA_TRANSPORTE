@@ -8,12 +8,21 @@
           zoom: 13
         });
         
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+
         var geocoder = new google.maps.Geocoder;
         var infowindow = new google.maps.InfoWindow;
       if($('#submitmapita').val()){
         document.getElementById('submitmapita').addEventListener('click', function() {
           console.log("L");
           geocodeLatLng(geocoder, map, infowindow);
+        });}
+        directionsDisplay.setMap(map);
+        if($('#submittravel').val()){
+          console.log("M");
+        document.getElementById('submittravel').addEventListener('click', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
         });}
         var input = /** @type {!HTMLInputElement} */(
             document.getElementById('pac-inputmap'));
@@ -69,7 +78,7 @@
               (place.address_components[2] && place.address_components[2].short_name || '')
             ].join(' ');
           }
-          //console.log(place);
+          console.log(place);
 
           var colonia = place.address_components.filter(function(address_component){
             return address_component.types.includes("neighborhood");
@@ -83,6 +92,7 @@
            var ciudad = place.address_components.filter(function(address_component){
             return address_component.types.includes("locality");
         });
+           
            var estado = place.address_components.filter(function(address_component){
             return address_component.types.includes("administrative_area_level_1");
         });
@@ -111,6 +121,7 @@
           }
           if ($("#location_city") && ciudad[0]){
             $("#location_city").val(ciudad[0].long_name);
+             $("#location_RFID").val(ciudad[0].long_name + "," +pais[0].long_name );
           }
           if ($("#location_state") && estado[0] ){
             $("#location_state").val(estado[0].long_name);
@@ -174,3 +185,42 @@
         });
       }
        }
+       /*DRAW TRAVEL*/
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        var waypts = [];
+        var checkboxArray = document.getElementById('waypoints');
+        for (var i = 0; i < checkboxArray.length; i++) {
+          if (checkboxArray.options[i].selected) {
+            waypts.push({
+              location: checkboxArray[i].value,
+              stopover: true
+            });
+          }
+        }
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          waypoints: waypts,
+          optimizeWaypoints: true,
+          travelMode: 'DRIVING'
+        }, function(response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+            var route = response.routes[0];
+            var summaryPanel = document.getElementById('directions-panel');
+            summaryPanel.innerHTML = '';
+            // For each route, display summary information.
+            for (var i = 0; i < route.legs.length; i++) {
+              var routeSegment = i + 1;
+              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+                  '</b><br>';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
+              summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
+            }
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
